@@ -1,0 +1,83 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the Uni-MuMER paper and potentially the other referenced works as well."
+authors:
+  - family-names: YourLastName # Replace with the primary author(s) of the repository
+    given-names: YourFirstName # and optionally ORCID: https://orcid.org/0000-0000-0000-0000
+  # Add other authors of the repository if applicable
+title: "Your Repository Title" # Replace with the title of your GitHub repository
+version: 1.0.0 # Or the current version of your repository
+# Optionally add a DOI for your repository (e.g., if archived on Zenodo)
+# identifiers:
+#   - type: doi
+#     value: 10.5281/zenodo.1234567
+repository-code: https://github.com/your-username/your-repository # Replace with your actual GitHub repository URL
+
+preferred-citation:
+  type: article
+  title: Uni-MuMER: Unified Multi-Task Fine-Tuning of Vision-Language Model for Handwritten Mathematical Expression Recognition
+  authors:
+    - family-names: Li
+      given-names: Yu
+    - family-names: Jiang
+      given-names: Jin
+    - family-names: Zhu
+      given-names: Jianhua
+    - family-names: Peng
+      given-names: Shuai
+    - family-names: Wei
+      given-names: Baole
+    - family-names: Zhou
+      given-names: Yuxuan
+    - family-names: Gao
+      given-names: Liangcai
+  year: 2025
+  journal: arXiv preprint arXiv:2505.23566
+  url: https://arxiv.org/abs/2505.23566
+
+references:
+  - type: article
+    title: Analysing Mathematical Reasoning Abilities of Neural Models
+    authors:
+      - family-names: Saxton
+        given-names: David
+      - family-names: Grefenstette
+        given-names: Edward
+      - family-names: Hill
+        given-names: Felix
+      - family-names: Kohli
+        given-names: Pushmeet
+    year: 2019
+    journal: arXiv preprint arXiv:1904.01557
+    url: https://arxiv.org/abs/1904.01557
+  - type: dataset # Or type: software if you are citing the dataset as a software artifact
+    title: MathWriting dataset
+    authors:
+      - family-names: Google Research
+    year: 2024 # Or the year of the last update/commit you used
+    publisher: GitHub
+    url: https://github.com/google-research/google-research/tree/master/mathwriting
+    # Optionally add a commit hash or version if you want to be more specific
+    # commit: abcdef1234567890abcdef1234567890abcdef12
+  - type: article
+    title: MathWriting: A Dataset For Handwritten Mathematical Expression Recognition
+    authors:
+      - family-names: Fadeeva
+        given-names: Tatiana
+      - family-names: Zhu
+        given-names: Jianhua
+      - family-names: Jiang
+        given-names: Jin
+      - family-names: Li
+        given-names: Yu
+      - family-names: Peng
+        given-names: Shuai
+      - family-names: Wei
+        given-names: Baole
+      - family-names: Zhou
+        given-names: Yuxuan
+      - family-names: Gao
+        given-names: Liangcai
+    year: 2024
+    journal: arXiv preprint arXiv:2404.10690
+    url: https://arxiv.org/abs/2404.10690
+
