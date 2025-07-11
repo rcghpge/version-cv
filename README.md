@@ -15,7 +15,7 @@ This project extends `version-tab` into vision-based tasks, exploring computer v
 - [DeepMind Mathematics Dataset](https://github.com/google-deepmind/mathematics_dataset) 
 - [MathWriting](https://huggingface.co/datasets/mathwriting) 
 
-Initial experiments and preprocessed image sets are located in `data/` and `docs/`.
+Initial benchmarks were considered but not implemented due to time constrained builds. They are located under `data/` and `docs/` directories.
 
 ---
 
@@ -53,7 +53,7 @@ pixi shell
 
 ---
 
-## 🚀 Quick Start
+## 🚀Quick Start
 
 ### Option 1: In Pixi shell
 
@@ -71,7 +71,7 @@ pixi run jupyter lab
 
 ---
 
-## 📊 Running & Viewing Results
+## 📊Running & Viewing Results
 
 1️⃣ Place your image data in `data/` folders (e.g., `data/handwriting`, `data/formulas`).
 
@@ -101,12 +101,10 @@ Open `cv_basemodel.ipynb` or `vision_transformer.ipynb` inside `notebooks/` for 
 
 ---
 
-## 📚 Research & References
+## 📚Research & References
 
 - [DeepMind Math Dataset](https://github.com/google-deepmind/mathematics_dataset)
 - [MathWriting Dataset](https://huggingface.co/datasets/mathwriting)
-- [CROHME Challenge](https://www.isical.ac.in/~crohme/)
-- [Keras Image Augmentation Layers](https://keras.io/api/layers/preprocessing_layers/image_augmentation/)
 
 ---
 
@@ -119,9 +117,4 @@ Security-focused contributions, reproducibility enhancements, and audit feedback
 
 ---
 
-## 🌟 Contributing
-
-Contributions are welcome! Please fork the repo, create a new branch, and submit a pull request.
-
----
 
