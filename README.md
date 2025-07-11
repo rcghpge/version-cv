@@ -12,9 +12,8 @@ This project extends `version-tab` into vision-based tasks, exploring computer v
 **Research Paper Reference:** [Analysing Mathematical Reasoning Abilities of Neural Models](https://openreview.net/pdf?id=H1gR5iR5FX)
 
 **Key Datasets:**
-- [DeepMind Math Handwriting Data](https://github.com/google-deepmind/mathematics_dataset) (synthetic formula images)
-- [MathWriting](https://huggingface.co/datasets/mathwriting) (handwritten mathematical expressions)
-- [CROHME](https://www.isical.ac.in/~crohme/) (handwritten math expression recognition challenge)
+- [DeepMind Mathematics Dataset](https://github.com/google-deepmind/mathematics_dataset) 
+- [MathWriting](https://huggingface.co/datasets/mathwriting) 
 
 Initial experiments and preprocessed image sets are located in `data/` and `docs/`.
 
