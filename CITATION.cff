@@ -17,7 +17,7 @@ authors:
   - family-names: Gao
     given-names: Liangcai
 year: 2025
-repository-code: https://github.com/your-username/your-repository # Replace with your actual GitHub repository URL
+repository-code: https://github.com/rcghpge/version-cv
 references:
   - type: article
     title: Uni-MuMER: Unified Multi-Task Fine-Tuning of Vision-Language Model for Handwritten Mathematical Expression Recognition
