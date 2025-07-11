@@ -1,6 +1,4 @@
-# ===================
 # Python
-# ===================
 __pycache__/
 *.py[cod]
 *.egg
@@ -43,6 +41,7 @@ env/
 *.tmp
 *.log
 *.inkml
+*.jsonl
 
 # Assignments & project workflows
 MathWriting-human/
@@ -78,8 +77,9 @@ yarn-error.log
 *.pth
 .cache
 
-# Allow homework outputs
+# Allowed outputs
 !docs/*.html
+!pixi.lock
 
 # Others
 *.egg-info
