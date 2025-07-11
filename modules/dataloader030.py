@@ -47,17 +47,29 @@ def load_parquet(parquet_path):
     return df
 
 # --------------------------------
-# INKML loader using lxml
+# Inkml loader with namespace, parsing labels and traces
 # --------------------------------
 def parse_inkml(file_path):
     tree = etree.parse(str(file_path))
-    latex_elements = tree.xpath('//annotation[@type="truth"]')
-    if latex_elements:
-        return latex_elements[0].text
-    return None
+    ns = {'ns': 'http://www.w3.org/2003/InkML'}
+
+    label = None
+    normalized = None
+
+    label_elements = tree.xpath('//ns:annotation[@type="label"]', namespaces=ns)
+    if label_elements and label_elements[0].text:
+        label = label_elements[0].text.strip()
+
+    normalized_elements = tree.xpath('//ns:annotation[@type="normalizedLabel"]', namespaces=ns)
+    if normalized_elements and normalized_elements[0].text:
+        normalized = normalized_elements[0].text.strip()
+
+    # Always return a dictionary, even if values are None
+    return {"label": label, "normalizedLabel": normalized}
+
 
 # --------------------------------
-# TXT (LaTeX code) loader
+# Txt (LaTeX code) loader
 # --------------------------------
 def load_latex_txt(file_path):
     with open(file_path, 'r') as f:
@@ -73,9 +85,9 @@ def create_latex_doc(latex_code, output_path="output.tex"):
     doc.generate_pdf(output_path.replace(".tex", ""), clean_tex=False)
 
 # --------------------------------
-# Orchestrator
+# Data Pipeline
 # --------------------------------
-def load_all_data(image_dir=None, parquet_path=None, inkml_dir=None, txt_dir=None, img_size=(224, 224), batch_size=32, val_split=0.2, augment=False):
+def load_data(image_dir=None, parquet_path=None, inkml_dir=None, txt_dir=None, img_size=(224, 224), batch_size=32, val_split=0.2, augment=False):
     train_gen, val_gen, df, inkml_latex, txt_latex = None, None, None, [], []
 
     if image_dir:
@@ -85,7 +97,7 @@ def load_all_data(image_dir=None, parquet_path=None, inkml_dir=None, txt_dir=Non
         df = load_parquet(parquet_path)
 
     if inkml_dir:
-        inkml_files = Path(inkml_dir).glob("*.inkml")
+        inkml_files = Path(inkml_dir).rglob("*.inkml")
         inkml_latex = [parse_inkml(f) for f in inkml_files]
 
     if txt_dir:
@@ -109,4 +121,3 @@ def load_all_data(image_dir=None, parquet_path=None, inkml_dir=None, txt_dir=Non
 #     augment=True
 # )
 # print(data)
-
