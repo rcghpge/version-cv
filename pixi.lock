@@ -143,7 +143,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/hyperframe-6.1.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/icu-75.1-he02047a_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/idna-3.10-pyhd8ed1ab_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/importlib-metadata-8.7.0-pyhe01879c_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/importlib-metadata-8.6.1-pyha770c72_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/importlib_resources-6.5.2-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/iniconfig-2.0.0-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/ipykernel-6.29.5-pyh3099207_0.conda
@@ -315,13 +315,13 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/openjpeg-2.5.3-h5fbd93e_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/openldap-2.6.10-he970967_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/openssl-3.5.1-h7b32b05_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-api-1.34.1-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-exporter-otlp-proto-common-1.34.1-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-exporter-otlp-proto-http-1.34.1-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-exporter-prometheus-0.48b0-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-proto-1.34.1-pyhd8ed1ab_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-sdk-1.34.1-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-semantic-conventions-0.55b1-pyh3cfb1c2_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-api-1.31.1-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-exporter-otlp-proto-common-1.31.1-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-exporter-otlp-proto-http-1.31.1-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-exporter-prometheus-0.52b1-pyhe01879c_2.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-proto-1.31.1-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-sdk-1.31.1-pyhd8ed1ab_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-semantic-conventions-0.52b1-pyh3cfb1c2_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/opt_einsum-3.4.0-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/optree-0.16.0-py312h68727a3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/orc-2.1.1-h2271f48_0.conda
@@ -1169,7 +1169,7 @@ packages:
   license: MIT
   license_family: MIT
   purls:
-  - pkg:pypi/brotli?source=compressed-mapping
+  - pkg:pypi/brotli?source=hash-mapping
   size: 351721
   timestamp: 1749230265727
 - conda: https://conda.anaconda.org/conda-forge/linux-64/bzip2-1.0.8-h4bc722e_7.conda
@@ -2500,19 +2500,18 @@ packages:
   - pkg:pypi/idna?source=hash-mapping
   size: 49765
   timestamp: 1733211921194
-- conda: https://conda.anaconda.org/conda-forge/noarch/importlib-metadata-8.7.0-pyhe01879c_1.conda
-  sha256: c18ab120a0613ada4391b15981d86ff777b5690ca461ea7e9e49531e8f374745
-  md5: 63ccfdc3a3ce25b027b8767eb722fca8
+- conda: https://conda.anaconda.org/conda-forge/noarch/importlib-metadata-8.6.1-pyha770c72_0.conda
+  sha256: 598951ebdb23e25e4cec4bbff0ae369cec65ead80b50bc08b441d8e54de5cf03
+  md5: f4b39bf00c69f56ac01e020ebfac066c
   depends:
   - python >=3.9
-  - zipp >=3.20
-  - python
+  - zipp >=0.5
   license: Apache-2.0
   license_family: APACHE
   purls:
-  - pkg:pypi/importlib-metadata?source=compressed-mapping
-  size: 34641
-  timestamp: 1747934053147
+  - pkg:pypi/importlib-metadata?source=hash-mapping
+  size: 29141
+  timestamp: 1737420302391
 - conda: https://conda.anaconda.org/conda-forge/noarch/importlib_resources-6.5.2-pyhd8ed1ab_0.conda
   sha256: acc1d991837c0afb67c75b77fdc72b4bf022aac71fedd8b9ea45918ac9b08a80
   md5: c85c76dc67d75619a92f51dfbce06992
@@ -5021,106 +5020,104 @@ packages:
   purls: []
   size: 3131002
   timestamp: 1751390382076
-- conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-api-1.34.1-pyhd8ed1ab_0.conda
-  sha256: 2a578761f5428675d2ec247544b4ec6764c373754cbac5fdfa896a18eaac1473
-  md5: 5f8298becc7e960d6fdf6b2f4a1da9d6
+- conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-api-1.31.1-pyhd8ed1ab_0.conda
+  sha256: cd384f9b810173a727f1593bb9813be050d01acd668e48b50ce2e453f5de791a
+  md5: 24c4e27988a95d32e89a02a2c35b4a72
   depends:
   - deprecated >=1.2.6
-  - importlib-metadata <8.8.0,>=6.0
+  - importlib-metadata <8.7.0,>=6.0
   - python >=3.9
-  - typing_extensions >=4.5.0
   license: Apache-2.0
   license_family: APACHE
   purls:
   - pkg:pypi/opentelemetry-api?source=hash-mapping
-  size: 45946
-  timestamp: 1749597639349
-- conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-exporter-otlp-proto-common-1.34.1-pyhd8ed1ab_0.conda
-  sha256: 94798a07711886961090c45673ac07468fc0aa3c0d1fbf9ca2966f8ee698d2cf
-  md5: 23be5b5ec7edbe607487ecb4f13c288c
+  size: 45334
+  timestamp: 1742553934187
+- conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-exporter-otlp-proto-common-1.31.1-pyhd8ed1ab_0.conda
+  sha256: 448a7e658f15922154c99a7664236236087cdd03df2fe2c0e4acc13c385afdb5
+  md5: f9eaa029b733515397f5f6abc79d7dee
   depends:
   - backoff >=1.10.0,<3.0.0
-  - opentelemetry-proto 1.34.1
+  - opentelemetry-proto 1.31.1
   - python >=3.9
   license: Apache-2.0
   license_family: APACHE
   purls:
   - pkg:pypi/opentelemetry-exporter-otlp-proto-common?source=hash-mapping
-  size: 19658
-  timestamp: 1749637849287
-- conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-exporter-otlp-proto-http-1.34.1-pyhd8ed1ab_0.conda
-  sha256: a9e4844c688b4291f0a16fb03d549fee0de3e743e4fbab6827560b80c1d527a0
-  md5: 4dc3e2c899b8ada7be05cdac011acbd4
+  size: 19663
+  timestamp: 1743356475715
+- conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-exporter-otlp-proto-http-1.31.1-pyhd8ed1ab_0.conda
+  sha256: e98514e78af9e21c5f94453fa09805a1fd2373f694cbd32cd877555033e4168a
+  md5: 2994d260d4c84acf2278bd6c8cb2a549
   depends:
   - deprecated >=1.2.6
   - googleapis-common-protos ~=1.52
   - opentelemetry-api ~=1.15
-  - opentelemetry-exporter-otlp-proto-common 1.34.1
-  - opentelemetry-proto 1.34.1
-  - opentelemetry-sdk >=1.34.1,<1.35.dev0
+  - opentelemetry-exporter-otlp-proto-common 1.31.1
+  - opentelemetry-proto 1.31.1
+  - opentelemetry-sdk 1.31.1
   - python >=3.9
   - requests ~=2.7
-  - typing_extensions >=4.5.0
   license: Apache-2.0
   license_family: APACHE
   purls:
   - pkg:pypi/opentelemetry-exporter-otlp-proto-http?source=hash-mapping
-  size: 17708
-  timestamp: 1749645883958
-- conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-exporter-prometheus-0.48b0-pyhd8ed1ab_0.conda
-  sha256: dff27441f3bf026f6cc4058b9a458794e9af79a6cd732ca277cdf2834319888b
-  md5: 91fa83c3be188680c428da0e4bea3b77
+  size: 17630
+  timestamp: 1743360983230
+- conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-exporter-prometheus-0.52b1-pyhe01879c_2.conda
+  sha256: f0811913277ba09d33cfd2ac85818c9bff8dc4d65e68ddc20f654426753f86af
+  md5: 170395802171a130b60807d550cbdcda
   depends:
-  - opentelemetry-api >=1.26.0,<2.0
-  - opentelemetry-sdk >=1.26.0,<2.0
+  - python >=3.9
+  - opentelemetry-api >=1.12,<2.dev0
+  - opentelemetry-sdk >=1.31.1,<1.32.dev0
   - prometheus_client >=0.5.0,<1.0.0
-  - python >=3.8
+  - python
+  license: Apache-2.0
+  purls:
+  - pkg:pypi/opentelemetry-exporter-prometheus?source=hash-mapping
+  size: 23243
+  timestamp: 1752105862495
+- conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-proto-1.31.1-pyhd8ed1ab_0.conda
+  sha256: d4f460a99e596dda908b7d830e22c47085557f236f70f09e4dc0278acdb15e28
+  md5: 55950000d9cfd424cda0332afabd2699
+  depends:
+  - protobuf <6.0,>=5.0
+  - python >=3.9
   license: Apache-2.0
   license_family: APACHE
   purls:
-  - pkg:pypi/opentelemetry-exporter-prometheus?source=hash-mapping
-  size: 17018
-  timestamp: 1724979786020
-- conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-proto-1.34.1-pyhd8ed1ab_1.conda
-  sha256: 310ba07d545aeec5a12a2da2a1fe4c356fb0b882fe0cf446a4b8ecdbfd5a33c1
-  md5: f8e251ed816a37e703bcbf2de8c5f0c8
-  depends:
-  - protobuf <7.0,>=5.0
-  - python >=3.9
-  license: Apache-2.0
-  purls:
   - pkg:pypi/opentelemetry-proto?source=hash-mapping
-  size: 38136
-  timestamp: 1752241336254
-- conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-sdk-1.34.1-pyhd8ed1ab_0.conda
-  sha256: e10d54de8fe2b305cb50f5c0dc56a932c2fb41bc6c928b9ecb24f6d90cce572c
-  md5: 78f31192e8556616e2f26df38a4ad2a0
+  size: 37754
+  timestamp: 1742584500614
+- conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-sdk-1.31.1-pyhd8ed1ab_0.conda
+  sha256: 287d7a41c4ab6e86048d3f64ec1c4bd845c41befe95ecd05d34fb5c7f588a41d
+  md5: 49db56f9ffb763b125de28e2ca601e66
   depends:
-  - opentelemetry-api 1.34.1
-  - opentelemetry-semantic-conventions 0.55b1
+  - opentelemetry-api 1.31.1
+  - opentelemetry-semantic-conventions 0.52b1
   - python >=3.9
   - typing-extensions >=3.7.4
-  - typing_extensions >=4.5.0
+  - typing_extensions >=3.7.4
   license: Apache-2.0
   license_family: APACHE
   purls:
   - pkg:pypi/opentelemetry-sdk?source=hash-mapping
-  size: 78024
-  timestamp: 1749613618568
-- conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-semantic-conventions-0.55b1-pyh3cfb1c2_0.conda
-  sha256: 069808c38a0b4bd2717d6d6549f871fbd2747fb8632b8979dccdde73f544a002
-  md5: 83f5d3b75f94f89c838ddaa815d517ff
+  size: 78570
+  timestamp: 1742641582369
+- conda: https://conda.anaconda.org/conda-forge/noarch/opentelemetry-semantic-conventions-0.52b1-pyh3cfb1c2_0.conda
+  sha256: fd510ea46f37b132c85881c877aacbe536bb5b8a40aa150ff1a52cac6627cd1b
+  md5: 8e0ffca4eb57cd6b78c2bcadda352714
   depends:
   - deprecated >=1.2.6
-  - opentelemetry-api 1.34.1
+  - opentelemetry-api 1.31.1
   - python >=3.9
-  - typing_extensions >=4.5.0
   license: Apache-2.0
   license_family: APACHE
   purls:
   - pkg:pypi/opentelemetry-semantic-conventions?source=hash-mapping
-  size: 102655
-  timestamp: 1749601037009
+  size: 95961
+  timestamp: 1742624311907
 - conda: https://conda.anaconda.org/conda-forge/noarch/opt_einsum-3.4.0-pyhd8ed1ab_1.conda
   sha256: af71aabb2bfa4b2c89b7b06403e5cec23b418452cae9f9772bd7ac3f9ea1ff44
   md5: 52919815cd35c4e1a0298af658ccda04
@@ -5633,8 +5630,7 @@ packages:
   - prompt-toolkit >=3.0.51,<3.0.52.0a0
   license: BSD-3-Clause
   license_family: BSD
-  purls:
-  - pkg:pypi/prompt-toolkit?source=compressed-mapping
+  purls: []
   size: 7182
   timestamp: 1744724189376
 - conda: https://conda.anaconda.org/conda-forge/linux-64/propcache-0.3.1-py312h178313f_0.conda

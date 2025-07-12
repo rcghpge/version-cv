@@ -1,43 +1,16 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-"""
-dataloader.py
-
-Baseline and robust data loading module for:
-- Computer vision (image datasets)
-- NLP (text datasets with tokenizer and optional vectorizer)
-- Tabular data (CSV, Parquet)
-- InkML markup data (e.g., handwritten math)
-- LLM engineering workflows (tokenization, embeddings)
-
-Author: Your Name
-"""
-
-import os
+from glob import glob
 import pandas as pd
-import glob
-import numpy as np
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from transformers import AutoTokenizer, TFAutoModel
-from sklearn.feature_extraction.text import TfidfVectorizer
 from lxml import etree
+from pathlib import Path
+from sklearn.model_selection import train_test_split
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from pylatex import Document, Math
+from typing import Optional, Tuple
 
-# === Baseline Computer Vision Loader ===
+# --------------------------------
+# Image data loader
+# --------------------------------
 def create_image_generators(data_dir, img_size=(224, 224), batch_size=32, val_split=0.2, augment=False):
-    """
-    Creates image data generators for training and validation.
-
-    Args:
-        data_dir (str): Directory with subfolders per class.
-        img_size (tuple): Image resize shape.
-        batch_size (int): Batch size.
-        val_split (float): Validation split.
-        augment (bool): Enable data augmentation.
-
-    Returns:
-        train_gen, val_gen (ImageDataGenerator flow objects)
-    """
     if augment:
         datagen = ImageDataGenerator(
             rescale=1./255,
@@ -58,7 +31,6 @@ def create_image_generators(data_dir, img_size=(224, 224), batch_size=32, val_sp
         shuffle=True,
         seed=42,
     )
-
     val_gen = datagen.flow_from_directory(
         data_dir,
         target_size=img_size,
@@ -70,330 +42,143 @@ def create_image_generators(data_dir, img_size=(224, 224), batch_size=32, val_sp
     )
     return train_gen, val_gen
 
-# === NLP: Text data ===
-def load_text_data(file_path, tokenizer_name="t5-small", max_len=128, vectorizer=None):
-    """
-    Loads text data and returns raw texts, tokenized tensors, and optional vector embeddings.
-
-    Args:
-        file_path (str): Path to TXT or CSV file.
-        tokenizer_name (str): HF tokenizer model name.
-        max_len (int): Max token length.
-        vectorizer: Optional sklearn-style vectorizer (ESA/SA).
-
-    Returns:
-        texts (list), tokens (dict), vectors (sparse matrix or None)
-    """
-    tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
-
-    if file_path.endswith(".txt"):
-        with open(file_path, encoding='utf-8') as f:
-            texts = [line.strip() for line in f if line.strip()]
-    elif file_path.endswith(".csv"):
-        df = pd.read_csv(file_path)
-        texts = df["text"].tolist() if "text" in df.columns else df.iloc[:, 0].tolist()
-    else:
-        raise ValueError("Unsupported text file format. Use .txt or .csv")
-
-    tokens = tokenizer(
-        texts,
-        return_tensors="tf",
-        padding="max_length",
-        truncation=True,
-        max_length=max_len
-    )
-
-    if vectorizer is not None:
-        vectors = vectorizer.transform(texts)
-    else:
-        vectors = None
-
-    return texts, tokens, vectors
-
-# === Tabular data ===
-def load_tabular_data(file_path, vectorizer=None):
-    """
-    Loads tabular data from CSV or Parquet and optionally vectorizes text columns.
-
-    Args:
-        file_path (str): Path to CSV or Parquet file.
-        vectorizer: Optional sklearn-style vectorizer.
-
-    Returns:
-        df (DataFrame), vectors (optional)
-    """
-    if file_path.endswith(".parquet"):
-        df = pd.read_parquet(file_path)
-    elif file_path.endswith(".csv"):
-        df = pd.read_csv(file_path)
-    else:
-        raise ValueError("Unsupported tabular file format. Use .csv or .parquet")
-
-    if vectorizer is not None and "text" in df.columns:
-        vectors = vectorizer.transform(df["text"].tolist())
-    else:
-        vectors = None
-
-    return df, vectors
-
-# === InkML data ===
-def parse_inkml_file(path):
-    tree = etree.parse(path)
-    root = tree.getroot()
-    traces = []
-    for trace in root.findall('{http://www.w3.org/2003/InkML}trace'):
-        trace_data = trace.text.strip().split(',')
-        traces.append([float(t.strip()) for t in trace_data if t.strip()])
-    return traces
-
-def load_inkml_data(folder_path):
-    """
-    Loads .inkml files from a folder and parses traces.
-
-    Args:
-        folder_path (str): Path to folder containing inkml files.
-
-    Returns:
-        List of parsed traces.
-    """
-    paths = glob.glob(os.path.join(folder_path, "*.inkml"))
-    parsed = [parse_inkml_file(p) for p in paths]
-    return parsed
-
-# === Master universal loader ===
-def load_data(
-    data_path,
-    data_type,
-    batch_size=32,
-    img_size=(224, 224),
-    tokenizer_name="t5-small",
-    max_text_len=128,
-    vectorizer=None,
-    augment=False
+# --------------------------------
+# Parquet loader with target split
+# --------------------------------
+def load_parquet(
+    parquet_path: str,
+    target_column: Optional[str] = None,
+    feature_columns: Optional[list] = None,
+    test_size: float = 0.2,
+    val_size: float = 0.1,
+    random_state: int = 42,
+    verbose: bool = True
 ):
-    """
-    Master universal data loader that delegates to specialized loaders.
+    # Expand ~ before using glob
+    parquet_path = os.path.expanduser(parquet_path)
 
-    Args:
-        data_path (str): File or folder path.
-        data_type (str): One of ['image', 'text', 'tabular', 'inkml'].
-        batch_size (int): Batch size for images.
-        img_size (tuple): Target image size.
-        tokenizer_name (str): HF tokenizer model name.
-        max_text_len (int): Max text length.
-        vectorizer: Optional vectorizer (ESA/SA).
-        augment (bool): Image augmentation.
+    if "*" in parquet_path or "?" in parquet_path or "[" in parquet_path:
+        file_list = glob(parquet_path, recursive=True)
+        if not file_list:
+            raise FileNotFoundError(f"No parquet files matched the pattern: {parquet_path}")
+        if verbose:
+            print(f"Found {len(file_list)} parquet files. Loading individually...")
 
-    Returns:
-        Data generator, or tuple of processed data.
-    """
-    if data_type == "image":
-        return create_image_generators(data_path, img_size, batch_size, augment=augment)
-    elif data_type == "text":
-        return load_text_data(data_path, tokenizer_name, max_text_len, vectorizer)
-    elif data_type == "tabular":
-        return load_tabular_data(data_path, vectorizer)
-    elif data_type == "inkml":
-        return load_inkml_data(data_path)
+        df_list = []
+        for f in file_list:
+            print(f"Loading {f} ...")
+            df = pd.read_parquet(f)
+            df_list.append(df)
+
+        df = pd.concat(df_list, ignore_index=True)
     else:
-        raise ValueError(f"Unsupported data type: {data_type}")
+        df = pd.read_parquet(parquet_path)
 
-#!/usr/bin/env python
-# coding: utf-8
+    if verbose:
+        print(f"Final merged shape: {df.shape}")
 
-"""
-dataloader.py
+    if not target_column:
+        return df, None, None, None, None
 
-Baseline and robust data loading module for:
-- Computer vision (image datasets)
-- NLP (text datasets with tokenizer and optional vectorizer)
-- Tabular data (CSV, Parquet)
-- InkML markup data (e.g., handwritten math)
-- LLM engineering workflows (tokenization, embeddings)
-
-Author: Your Name
-"""
-
-import os
-import pandas as pd
-import glob
-import numpy as np
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from transformers import AutoTokenizer, TFAutoModel
-from sklearn.feature_extraction.text import TfidfVectorizer
-from lxml import etree
-
-# === Baseline Computer Vision Loader ===
-def create_image_generators(data_dir, img_size=(224, 224), batch_size=32, val_split=0.2, augment=False):
-    """
-    Creates image data generators for training and validation.
-
-    Args:
-        data_dir (str): Directory with subfolders per class.
-        img_size (tuple): Image resize shape.
-        batch_size (int): Batch size.
-        val_split (float): Validation split.
-        augment (bool): Enable data augmentation.
-
-    Returns:
-        train_gen, val_gen (ImageDataGenerator flow objects)
-    """
-    if augment:
-        datagen = ImageDataGenerator(
-            rescale=1./255,
-            validation_split=val_split,
-            rotation_range=10,
-            zoom_range=0.1,
-            horizontal_flip=True
-        )
+    if feature_columns:
+        X = df[feature_columns]
     else:
-        datagen = ImageDataGenerator(rescale=1./255, validation_split=val_split)
+        X = df.drop(columns=[target_column])
 
-    train_gen = datagen.flow_from_directory(
-        data_dir,
-        target_size=img_size,
-        batch_size=batch_size,
-        class_mode='binary',
-        subset='training',
-        shuffle=True,
-        seed=42,
+    y = df[target_column]
+
+    from sklearn.model_selection import train_test_split
+    X_train, X_temp, y_train, y_temp = train_test_split(
+        X, y, test_size=(test_size + val_size), random_state=random_state
+    )
+    relative_val_size = val_size / (test_size + val_size)
+
+    X_val, X_test, y_val, y_test = train_test_split(
+        X_temp, y_temp, test_size=relative_val_size, random_state=random_state
     )
 
-    val_gen = datagen.flow_from_directory(
-        data_dir,
-        target_size=img_size,
-        batch_size=batch_size,
-        class_mode='binary',
-        subset='validation',
-        shuffle=False,
-        seed=42,
-    )
-    return train_gen, val_gen
+    if verbose:
+        print(f"Train shape: {X_train.shape}, Val shape: {X_val.shape}, Test shape: {X_test.shape}")
 
-# === NLP: Text data ===
-def load_text_data(file_path, tokenizer_name="t5-small", max_len=128, vectorizer=None):
-    """
-    Loads text data and returns raw texts, tokenized tensors, and optional vector embeddings.
+    return X_train, X_val, y_train, y_val, X_test
+    
+# --------------------------------
+# Inkml loader with namespace parsing
+# --------------------------------
+def parse_inkml(file_path):
+    tree = etree.parse(str(file_path))
+    ns = {'ns': 'http://www.w3.org/2003/InkML'}
 
-    Args:
-        file_path (str): Path to TXT or CSV file.
-        tokenizer_name (str): HF tokenizer model name.
-        max_len (int): Max token length.
-        vectorizer: Optional sklearn-style vectorizer (ESA/SA).
+    label = None
+    normalized = None
 
-    Returns:
-        texts (list), tokens (dict), vectors (sparse matrix or None)
-    """
-    tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
+    label_elements = tree.xpath('//ns:annotation[@type="label"]', namespaces=ns)
+    if label_elements and label_elements[0].text:
+        label = label_elements[0].text.strip()
 
-    if file_path.endswith(".txt"):
-        with open(file_path, encoding='utf-8') as f:
-            texts = [line.strip() for line in f if line.strip()]
-    elif file_path.endswith(".csv"):
-        df = pd.read_csv(file_path)
-        texts = df["text"].tolist() if "text" in df.columns else df.iloc[:, 0].tolist()
-    else:
-        raise ValueError("Unsupported text file format. Use .txt or .csv")
+    normalized_elements = tree.xpath('//ns:annotation[@type="normalizedLabel"]', namespaces=ns)
+    if normalized_elements and normalized_elements[0].text:
+        normalized = normalized_elements[0].text.strip()
 
-    tokens = tokenizer(
-        texts,
-        return_tensors="tf",
-        padding="max_length",
-        truncation=True,
-        max_length=max_len
-    )
+    return {"label": label, "normalizedLabel": normalized}
 
-    if vectorizer is not None:
-        vectors = vectorizer.transform(texts)
-    else:
-        vectors = None
+# --------------------------------
+# Txt (LaTeX code) loader
+# --------------------------------
+def load_latex_txt(file_path):
+    with open(file_path, 'r') as f:
+        content = f.read()
+    return content
 
-    return texts, tokens, vectors
+# --------------------------------
+# PyLaTeX helper for generating LaTeX documents
+# --------------------------------
+def create_latex_doc(latex_code, output_path="output.tex"):
+    doc = Document()
+    doc.append(Math(data=[latex_code]))
+    doc.generate_pdf(output_path.replace(".tex", ""), clean_tex=False)
 
-# === Tabular data ===
-def load_tabular_data(file_path, vectorizer=None):
-    """
-    Loads tabular data from CSV or Parquet and optionally vectorizes text columns.
+# --------------------------------
+# Data Pipeline
+# --------------------------------
+def load_data(image_dir=None, parquet_path=None, target_column=None, feature_columns=None, 
+              test_size=0.2, val_size=0.1, inkml_dir=None, txt_dir=None, 
+              img_size=(224, 224), batch_size=32, val_split=0.2, augment=False, verbose=True):
+    train_gen, val_gen, parquet_splits, inkml_latex, txt_latex = None, None, None, [], []
 
-    Args:
-        file_path (str): Path to CSV or Parquet file.
-        vectorizer: Optional sklearn-style vectorizer.
+    if image_dir:
+        train_gen, val_gen = create_image_generators(image_dir, img_size, batch_size, val_split, augment)
 
-    Returns:
-        df (DataFrame), vectors (optional)
-    """
-    if file_path.endswith(".parquet"):
-        df = pd.read_parquet(file_path)
-    elif file_path.endswith(".csv"):
-        df = pd.read_csv(file_path)
-    else:
-        raise ValueError("Unsupported tabular file format. Use .csv or .parquet")
+    if parquet_path:
+        parquet_splits = load_parquet(parquet_path, target_column, feature_columns, test_size, val_size, verbose=verbose)
 
-    if vectorizer is not None and "text" in df.columns:
-        vectors = vectorizer.transform(df["text"].tolist())
-    else:
-        vectors = None
+    if parquet_path and not target_column:
+        raise ValueError("If 'parquet_path' is provided, you should also specify 'target_column'.")
 
-    return df, vectors
+    if inkml_dir:
+        inkml_files = Path(inkml_dir).rglob("*.inkml")
+        inkml_latex = [parse_inkml(f) for f in inkml_files]
 
-# === InkML data ===
-def parse_inkml_file(path):
-    tree = etree.parse(path)
-    root = tree.getroot()
-    traces = []
-    for trace in root.findall('{http://www.w3.org/2003/InkML}trace'):
-        trace_data = trace.text.strip().split(',')
-        traces.append([float(t.strip()) for t in trace_data if t.strip()])
-    return traces
+    if txt_dir:
+        txt_files = Path(txt_dir).glob("*.txt")
+        txt_latex = [load_latex_txt(f) for f in txt_files]
 
-def load_inkml_data(folder_path):
-    """
-    Loads .inkml files from a folder and parses traces.
+    return {
+        "train_gen": train_gen,
+        "val_gen": val_gen,
+        "parquet_splits": parquet_splits,
+        "inkml_latex": inkml_latex,
+        "txt_latex": txt_latex
+    }
 
-    Args:
-        folder_path (str): Path to folder containing inkml files.
 
-    Returns:
-        List of parsed traces.
-    """
-    paths = glob.glob(os.path.join(folder_path, "*.inkml"))
-    parsed = [parse_inkml_file(p) for p in paths]
-    return parsed
-
-# === Master universal loader ===
-def load_data(
-    data_path,
-    data_type,
-    batch_size=32,
-    img_size=(224, 224),
-    tokenizer_name="t5-small",
-    max_text_len=128,
-    vectorizer=None,
-    augment=False
-):
-    """
-    Master universal data loader that delegates to specialized loaders.
-
-    Args:
-        data_path (str): File or folder path.
-        data_type (str): One of ['image', 'text', 'tabular', 'inkml'].
-        batch_size (int): Batch size for images.
-        img_size (tuple): Target image size.
-        tokenizer_name (str): HF tokenizer model name.
-        max_text_len (int): Max text length.
-        vectorizer: Optional vectorizer (ESA/SA).
-        augment (bool): Image augmentation.
-
-    Returns:
-        Data generator, or tuple of processed data.
-    """
-    if data_type == "image":
-        return create_image_generators(data_path, img_size, batch_size, augment=augment)
-    elif data_type == "text":
-        return load_text_data(data_path, tokenizer_name, max_text_len, vectorizer)
-    elif data_type == "tabular":
-        return load_tabular_data(data_path, vectorizer)
-    elif data_type == "inkml":
-        return load_inkml_data(data_path)
-    else:
-        raise ValueError(f"Unsupported data type: {data_type}")
+# Example usage
+# data = load_data(
+#     image_dir="./images",
+#     parquet_path="./data/math_dataset.parquet",
+#     target_column="solution",
+#     inkml_dir="./inkml_files",
+#     txt_dir="./latex_txts",
+#     augment=True
+# )
+# print(data)
