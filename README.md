@@ -121,10 +121,12 @@ This repository builds on and is inspired by prior research in mathematical reas
 - OpenAI, *Improving Mathematical Reasoning with Process Supervision*, 2022.  
   https://openai.com/index/improving-mathematical-reasoning-with-process-supervision/
 
-- Wei et al., *Chain of Thought Prompting Elicits Reasoning in Large Language Models*, arXiv:2201.11903.  
-  https://arxiv.org/abs/2201.11903
+- Hendrycks et al., *Measuring Mathematical Problem Solving With the MATH Dataset*, arXiv:2103.03874.  
+  https://arxiv.org/abs/2103.03874
 
 For additional resources and implementation details, please see the [`docs`](https://github.com/rcghpge/version-cv/tree/main/docs) directory.
+
+Data sources, licensing information, and data usage guidelines can be found in the [`data`](https://github.com/rcghpge/version-cv/tree/main/data) directory.
 
 ---
 
