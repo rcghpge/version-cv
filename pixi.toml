@@ -53,6 +53,7 @@ pandoc = ">=3.7.0.2,<4"
 pyarrow = ">=19.0.1,<20"
 pyspark = ">=4.0.0,<5"
 apache-atlas = ">=0.0.16,<0.0.17"
+pypandoc = ">=1.15,<2"
 
 [pypi-dependencies]
 keras-nlp = ">=0.21.1, <0.22"
