@@ -22,7 +22,7 @@ Initial benchmarks were considered but not implemented due to time constrained b
 ## 📁 Project Structure
 
 ```
-version-tab-cv/
+version-cv/
 ├── data/            
 ├── docs/            
 ├── models/           
@@ -105,6 +105,26 @@ Open `cv_basemodel.ipynb` or `vision_transformer.ipynb` inside `notebooks/` for 
 
 - [DeepMind Math Dataset](https://github.com/google-deepmind/mathematics_dataset)
 - [MathWriting Dataset](https://huggingface.co/datasets/mathwriting)
+
+---
+
+## Citations & Acknowledgements
+
+This repository builds on and is inspired by prior research in mathematical reasoning, handwriting recognition, and foundation models:
+
+- Saxton et al., *Analysing Mathematical Reasoning Abilities of Neural Models*, arXiv:1904.01557.  
+  https://arxiv.org/abs/1904.01557
+
+- Gervais et al., *MathWriting: A Dataset for Handwritten Mathematical Expression Recognition*, arXiv:2404.10690.  
+  https://arxiv.org/abs/2404.10690
+
+- OpenAI, *Improving Mathematical Reasoning with Process Supervision*, 2022.  
+  https://openai.com/index/improving-mathematical-reasoning-with-process-supervision/
+
+- Wei et al., *Chain of Thought Prompting Elicits Reasoning in Large Language Models*, arXiv:2201.11903.  
+  https://arxiv.org/abs/2201.11903
+
+For additional resources and implementation details, please see the [`docs`](https://github.com/rcghpge/version-cv/tree/main/docs) directory.
 
 ---
 
