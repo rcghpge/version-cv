@@ -6,18 +6,21 @@
 [![pages-build-deployment](https://github.com/rcghpge/version-cv/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/rcghpge/version-cv/actions/workflows/pages/pages-build-deployment)
 
 
-**version-cv** is a research-focused computer vision repository designed for mathematical image recognition, symbolic diagram parsing, and deep learning for mathematical reasoning. It builds on the foundational work from `version-tab`, a project focused on mathematical language modeling and symbolic abstraction in tabular formats. `version-cv` extends these capabilities into vision-based tasks using state-of-the-art deep learning methods.
+**version-cv** is a research-driven computer vision repository designed for mathematical problem solving, image recognition, symbolic diagram parsing, and deep learning for mathematical reasoning. It builds on research and development from `version-tab`, a project focused on mathematical language modeling and symbolic abstraction in tabular formats. `version-cv` builds from this for vision-based tasks with advanced deep learning methods.
 
-This project explores:
+Research topics:
 
-* TODO: Vision project summary
+* Mathematic problem solving in the computer vision space
 * Symbolic reasoning through visual inputs
-* Advanced image augmentation
+* sequence to sequence and word to vector - word2vec, seq2seq.
+* Image augmentation
+* R&D in the LaTeX type-setting system for handwritten math.
 
-It integrates seamlessly with `version-sdk`, a custom software development kit for managing data and model workflows.
+It was developed from `version-sdk`, a software development kit for data and model workflows.
 
-**Research Paper Reference:** [Gervais et al., MathWriting: A Dataset for Handwritten Mathematical Expression Recognition](https://arxiv.org/abs/2404.10690)
-**Research Paper Reference:** [Saxton et al., Analyzing Mathematical Reasoning Abilities of Neural Models](https://openreview.net/pdf?id=H1gR5iR5FX)
+**Research Publications/References:** 
+- [Gervais et al., MathWriting: A Dataset for Handwritten Mathematical Expression Recognition](https://arxiv.org/abs/2404.10690)
+- [Saxton et al., Analyzing Mathematical Reasoning Abilities of Neural Models](https://openreview.net/pdf?id=H1gR5iR5FX)
 
 ---
 
@@ -26,7 +29,7 @@ It integrates seamlessly with `version-sdk`, a custom software development kit f
 * [MathWriting](https://huggingface.co/datasets/mathwriting)
 * [DeepMind Mathematics Dataset](https://github.com/google-deepmind/mathematics_dataset)
 
-> *Note:* Initial benchmarks are available in `data/` and `docs/`, but not yet implemented in code due to time constraints.
+> *Note:* Initial benchmarks were considered but not implemented due to time constraint research and builds. They are provided in `data/` and `docs/` directories.
 
 ---
 
@@ -141,7 +144,7 @@ This repository emphasizes security and reproducibility, especially for research
 
 ### Bandit
 
-[Bandit](https://bandit.readthedocs.io/en/latest/) is used to identify common security issues in Python code.
+[Bandit](https://bandit.readthedocs.io/en/latest/) is a static analysis tool that is utilized to identify common security issues in Python code.
 
 To run manually:
 
@@ -151,7 +154,7 @@ bandit -r models/ modules/ notebooks/
 
 ### pip-audit
 
-[pip-audit](https://pypi.org/project/pip-audit/) checks for known vulnerabilities in installed Python dependencies.
+[pip-audit](https://pypi.org/project/pip-audit/)  is a tool for scanning Python dependencies and environments for packages with known vulnerabilities.
 
 To run:
 
@@ -170,7 +173,7 @@ pip-audit
 * **CodeQL** scans for potential vulnerabilities in GitHub Actions workflows and source code.
 * **Dependabot** automatically opens pull requests to update dependencies and alerts about security patches.
 
-> ⚠️ This repository is intended for **academic and industry research**, prototyping, and open collaboration.
+> This repository is intended for **academic and industry research**, prototyping, and open collaboration.
 > It is research-based though not tailored for production-grade. It is academic-focused.
 > Security reviews and reproducibility audits are welcomed through GitHub Issues and Pull Requests.
 
