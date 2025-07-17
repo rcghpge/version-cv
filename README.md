@@ -113,7 +113,7 @@ python models/basemodel.py
 
 ## 🧪 Notebooks
 
-Launch:
+Jupyter Lab:
 
 ```bash
 jupyter lab
