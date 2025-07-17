@@ -45,6 +45,7 @@ env/
 *.jsonl
 
 # Assignments & project workflows
+*.keras
 MathWriting-human/
 mathwriting/
 mathwriting-2025/
