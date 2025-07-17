@@ -141,9 +141,8 @@ Additional implementation notes are in [`docs/`](https://github.com/rcghpge/vers
 ---
 
 ## 🛡️ Security Note
-
-This repository is intended for **academic and industry research**, prototyping, and open source research and development.
-Security reviews and and dependency audits for reproducibility are important in this space and welcome through GitHub Issues and Pull Requests.
+`version-cv` is built with integrated security and Python dependency management tools Bandit and pip-audit.
+Security and reproducibility improvements are important and welcome via PR's
 
 ### Bandit
 
