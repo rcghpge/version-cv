@@ -37,13 +37,15 @@ It was developed from `version-sdk`, a software development kit for data and mod
 
 ```
 version-cv/
-├── data/            # Dataset storage
-├── docs/            # Design notes, benchmarking plans
-├── models/          # Model definitions and training logic
-├── modules/         # Helper modules for parsing, transforms
-├── notebooks/       # Jupyter notebooks for exploration
-├── pixi.toml        # Pixi environment configuration
-├── pixi.lock        # Lockfile for reproducibility
+├── CITATION.cff
+├── LICENSE
+├── data
+├── docs
+├── models
+├── modules
+├── notebooks
+├── pixi.lock
+├── pixi.toml
 └── README.md
 ```
 
