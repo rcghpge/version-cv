@@ -29,7 +29,7 @@ It was developed from `version-sdk`, a software development kit for data science
 * [MathWriting](https://huggingface.co/datasets/mathwriting)
 * [DeepMind Mathematics Dataset](https://github.com/google-deepmind/mathematics_dataset)
 
-> *Note:* Initial benchmarks were considered but not implemented due to time constraint research and builds. They are provided in `data/` and `docs/` directories.
+Initial benchmarks were considered but not implemented due to time constraint research and builds. They are provided in `data/` and `docs/` directories.
 
 ---
 
