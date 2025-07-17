@@ -3,7 +3,7 @@
 [![Dependabot Updates](https://github.com/rcghpge/version-cv/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/rcghpge/version-cv/actions/workflows/dependabot/dependabot-updates)
 [![CodeQL Advanced](https://github.com/rcghpge/version-cv/actions/workflows/codeql.yml/badge.svg)](https://github.com/rcghpge/version-cv/actions/workflows/codeql.yml)
 [![Bandit](https://github.com/rcghpge/version-cv/actions/workflows/bandit.yml/badge.svg)](https://github.com/rcghpge/version-cv/actions/workflows/bandit.yml)
-[![pages-build-deployment](https://github.com/rcghpge/version-cv/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/rcghpge/version-cv/actions/workflows/pages/pages-build-deployment)
+#[![pages-build-deployment](https://github.com/rcghpge/version-cv/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/rcghpge/version-cv/actions/workflows/pages/pages-build-deployment)
 
 
 **version-cv** is a research-driven computer vision repository designed for mathematical problem solving, image recognition, symbolic diagram parsing, and deep learning for mathematical reasoning. It builds on research and development from `version-tab`, a project focused on mathematical language modeling and symbolic abstraction in tabular formats. `version-cv` builds from this for vision-based tasks with advanced deep learning methods.
