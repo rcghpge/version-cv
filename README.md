@@ -16,7 +16,7 @@ Research topics:
 * Image augmentation
 * R&D in the LaTeX type-setting system for handwritten math.
 
-It was developed from `version-sdk`, a software development kit for data and model workflows.
+It was developed from `version-sdk`, a software development kit for data science workflows and other domains.
 
 **Research Publications/References:** 
 - [Gervais et al., MathWriting: A Dataset for Handwritten Mathematical Expression Recognition](https://arxiv.org/abs/2404.10690)
