@@ -53,7 +53,7 @@ version-cv/
 
 ## ⚡ Setup
 
-This project uses [Pixi](https://prefix.dev/pixi) to manage environments and dependencies.
+This project is built with [Pixi](https://pixi.sh/latest/) to manage environments and dependencies.
 
 ```bash
 # Install Pixi if not already installed
