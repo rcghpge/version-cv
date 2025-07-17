@@ -140,9 +140,10 @@ Additional implementation notes are in [`docs/`](https://github.com/rcghpge/vers
 
 ---
 
-## 🛡️ Security & Auditing
+## 🛡️ Security Note
 
-This repository emphasizes security and reproducibility, especially for research workflows. While not intended for production deployment without further hardening, the following tools and workflows are integrated to improve code quality and security posture:
+This repository is intended for **academic and industry research**, prototyping, and open source research and development.
+Security reviews and reproducibility audits are welcomed through GitHub Issues and Pull Requests.
 
 ### Bandit
 
@@ -169,15 +170,6 @@ Or:
 ```bash
 pip-audit
 ```
-
-### CodeQL & Dependabot
-
-* **CodeQL** scans for potential vulnerabilities in GitHub Actions workflows and source code.
-* **Dependabot** automatically opens pull requests to update dependencies and alerts about security patches.
-
-> This repository is intended for **academic and industry research**, prototyping, and open collaboration.
-> It is research-based though not tailored for production-grade. It is academic-focused.
-> Security reviews and reproducibility audits are welcomed through GitHub Issues and Pull Requests.
 
 ---
 
