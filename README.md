@@ -143,7 +143,7 @@ Additional implementation notes are in [`docs/`](https://github.com/rcghpge/vers
 ## 🛡️ Security Note
 
 This repository is intended for **academic and industry research**, prototyping, and open source research and development.
-Security reviews and reproducibility audits are welcomed through GitHub Issues and Pull Requests.
+Security reviews and and dependency audits for reproducibility are important in this space and welcome through GitHub Issues and Pull Requests.
 
 ### Bandit
 
