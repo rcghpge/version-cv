@@ -10,7 +10,7 @@
 
 Research topics:
 
-* Mathematic problem solving in the computer vision space
+* Mathematical problem solving in the computer vision space
 * Symbolic reasoning through visual inputs
 * sequence to sequence and word to vector - word2vec, seq2seq.
 * Image augmentation
