@@ -5,17 +5,28 @@
 [![Bandit](https://github.com/rcghpge/version-cv/actions/workflows/bandit.yml/badge.svg)](https://github.com/rcghpge/version-cv/actions/workflows/bandit.yml)
 [![pages-build-deployment](https://github.com/rcghpge/version-cv/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/rcghpge/version-cv/actions/workflows/pages/pages-build-deployment)
 
-A research-driven computer vision repository focused on mathematical image recognition, symbolic diagram parsing, handwriting analysis, and deep learning for mathematical reasoning.
 
-This project extends `version-tab` into vision-based tasks, exploring computer vision transformers (ViTs), T5-based vision-text pipelines, robust image augmentation, and symbolic reasoning. It integrates with `version-sdk`, a custom software development kit for data workflows.
+**version-cv** is a research-focused computer vision repository designed for mathematical image recognition, symbolic diagram parsing, and deep learning for mathematical reasoning. It builds on the foundational work from `version-tab`, a project focused on mathematical language modeling and symbolic abstraction in tabular formats. `version-cv` extends these capabilities into vision-based tasks using state-of-the-art deep learning methods.
 
-**Research Paper Reference:** [Analysing Mathematical Reasoning Abilities of Neural Models](https://openreview.net/pdf?id=H1gR5iR5FX)
+This project explores:
 
-**Key Datasets:**
-- [DeepMind Mathematics Dataset](https://github.com/google-deepmind/mathematics_dataset) 
-- [MathWriting](https://huggingface.co/datasets/mathwriting) 
+* TODO: Vision project summary
+* Symbolic reasoning through visual inputs
+* Advanced image augmentation
 
-Initial benchmarks were considered but not implemented due to time constrained builds. They are located under `data/` and `docs/` directories.
+It integrates seamlessly with `version-sdk`, a custom software development kit for managing data and model workflows.
+
+**Research Paper Reference:** [Gervais et al., MathWriting: A Dataset for Handwritten Mathematical Expression Recognition](https://arxiv.org/abs/2404.10690)
+**Research Paper Reference:** [Saxton et al., Analyzing Mathematical Reasoning Abilities of Neural Models](https://openreview.net/pdf?id=H1gR5iR5FX)
+
+---
+
+## 📊 Key Datasets
+
+* [MathWriting](https://huggingface.co/datasets/mathwriting)
+* [DeepMind Mathematics Dataset](https://github.com/google-deepmind/mathematics_dataset)
+
+> *Note:* Initial benchmarks are available in `data/` and `docs/`, but not yet implemented in code due to time constraints.
 
 ---
 
@@ -23,19 +34,21 @@ Initial benchmarks were considered but not implemented due to time constrained b
 
 ```
 version-cv/
-├── data/            
-├── docs/            
-├── models/           
-├── modules/        
-├── notebooks/       
-├── pixi.toml
-├── pixi.lock
+├── data/            # Dataset storage
+├── docs/            # Design notes, benchmarking plans
+├── models/          # Model definitions and training logic
+├── modules/         # Helper modules for parsing, transforms
+├── notebooks/       # Jupyter notebooks for exploration
+├── pixi.toml        # Pixi environment configuration
+├── pixi.lock        # Lockfile for reproducibility
 └── README.md
 ```
 
 ---
 
 ## ⚡ Setup
+
+This project uses [Pixi](https://prefix.dev/pixi) to manage environments and dependencies.
 
 ```bash
 # Install Pixi if not already installed
@@ -49,20 +62,23 @@ pixi install
 
 # Enter Pixi environment
 pixi shell
+
+# Pixi Environment information
+pixi info
 ```
 
 ---
 
-## 🚀Quick Start
+## 🚀 Quick Start
 
-### Option 1: In Pixi shell
+### Option 1: Using Pixi shell
 
 ```bash
 python models/basemodel.py
 jupyter lab
 ```
 
-### Option 2: One-liner without shell
+### Option 2: One-liner
 
 ```bash
 pixi run python models/basemodel.py
@@ -71,72 +87,92 @@ pixi run jupyter lab
 
 ---
 
-## 📊Running & Viewing Results
+## 📊 Running & Viewing Results
 
-1️⃣ Place your image data in `data/` folders (e.g., `data/handwriting`, `data/formulas`).
+1. Place your images and data in the `data/` directory (e.g., `data/handwriting`, `data/formulas`).
 
-2️⃣ Run:
+2. Run training/inference:
 
 ```bash
 python models/basemodel.py
 ```
 
-- Performs training or inference on image datasets
-- Outputs accuracy, mAP, symbolic parsing metrics
-- Saves predictions to `predictions/`
+* Outputs metrics: accuracy, mAP, symbolic parsing quality
+* Saves predictions to `predictions/`
 
-3️⃣ Check model summaries and logs in `models/summary/`.
+3. View logs and summaries:
+
+* `models/summary/`
 
 ---
 
 ## 🧪 Notebooks
 
-Launch Jupyter Lab:
+Launch:
 
 ```bash
 jupyter lab
 ```
 
-Open `cv_basemodel.ipynb` or `vision_transformer.ipynb` inside `notebooks/` for experiments and visual analysis.
+Run Jupyter notebooks `cv_basemodel.ipynb` or `vision_transformer.ipynb` from the `notebooks/` folder.
+
+These provide experiments and visualizations for ongoing development.
 
 ---
 
-## 📚Research & References
+## 📃 Research & References
 
-- [DeepMind Math Dataset](https://github.com/google-deepmind/mathematics_dataset)
-- [MathWriting Dataset](https://huggingface.co/datasets/mathwriting)
+* Gervais et al., *MathWriting: A Dataset for Handwritten Mathematical Expression Recognition*
+  [arXiv:2404.10690](https://arxiv.org/abs/2404.10690)
+* Saxton et al., *Analyzing Mathematical Reasoning Abilities of Neural Models*
+  [arXiv:1904.01557](https://arxiv.org/abs/1904.01557)
+* OpenAI, *Improving Mathematical Reasoning with Process Supervision* (2022)
+  [Blog Link](https://openai.com/index/improving-mathematical-reasoning-with-process-supervision/)
+* Hendrycks et al., *Measuring Mathematical Problem Solving With the MATH Dataset*
+  [arXiv:2103.03874](https://arxiv.org/abs/2103.03874)
 
----
-
-## Citations & Acknowledgements
-
-This repository builds on and is inspired by prior research in mathematical reasoning, handwriting recognition, and foundation models:
-
-- Saxton et al., *Analysing Mathematical Reasoning Abilities of Neural Models*, arXiv:1904.01557.  
-  https://arxiv.org/abs/1904.01557
-
-- Gervais et al., *MathWriting: A Dataset for Handwritten Mathematical Expression Recognition*, arXiv:2404.10690.  
-  https://arxiv.org/abs/2404.10690
-
-- OpenAI, *Improving Mathematical Reasoning with Process Supervision*, 2022.  
-  https://openai.com/index/improving-mathematical-reasoning-with-process-supervision/
-
-- Hendrycks et al., *Measuring Mathematical Problem Solving With the MATH Dataset*, arXiv:2103.03874.  
-  https://arxiv.org/abs/2103.03874
-
-For additional resources and implementation details, please see the [`docs`](https://github.com/rcghpge/version-cv/tree/main/docs) directory.
-
-Data sources, licensing information, and data usage guidelines can be found in the [`data`](https://github.com/rcghpge/version-cv/tree/main/data) directory.
+Additional implementation notes are in [`docs/`](https://github.com/rcghpge/version-cv/tree/main/docs) and data usage info is in [`data/`](https://github.com/rcghpge/version-cv/tree/main/data).
 
 ---
 
-## 🛡️ Security Note
+## 🛡️ Security & Auditing
 
-This repository is intended for academic research, experimentation, and open source collaboration.  
-It is **not intended for production use** without further rigorous evaluation and security review.
+This repository emphasizes security and reproducibility, especially for research workflows. While not intended for production deployment without further hardening, the following tools and workflows are integrated to improve code quality and security posture:
 
-Security-focused contributions, reproducibility enhancements, and audit feedback are highly encouraged via PRs or issues.
+### Bandit
+
+[Bandit](https://bandit.readthedocs.io/en/latest/) is used to identify common security issues in Python code.
+
+To run manually:
+
+```bash
+bandit -r models/ modules/ notebooks/
+```
+
+### pip-audit
+
+[pip-audit](https://pypi.org/project/pip-audit/) checks for known vulnerabilities in installed Python dependencies.
+
+To run:
+
+```bash
+pixi run pip-audit
+```
+
+Or:
+
+```bash
+pip-audit
+```
+
+### CodeQL & Dependabot
+
+* **CodeQL** scans for potential vulnerabilities in GitHub Actions workflows and source code.
+* **Dependabot** automatically opens pull requests to update dependencies and alerts about security patches.
+
+> ⚠️ This repository is intended for **academic and industry research**, prototyping, and open collaboration.
+> It is research-based though not tailored for production-grade. It is academic-focused.
+> Security reviews and reproducibility audits are welcomed through GitHub Issues and Pull Requests.
 
 ---
-
 
