@@ -46,13 +46,15 @@ env/
 
 # Assignments & project workflows
 *.keras
+dev/
+img/
+sandbox/
 MathWriting-human/
 mathwriting/
 mathwriting-2025/
 math_dataset/
 math/
 hwzips/
-dev/
 
 # Node / frontend
 node_modules/
