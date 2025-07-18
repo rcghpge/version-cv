@@ -320,7 +320,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/nomkl-1.0-h5ca1d4c_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/notebook-7.4.4-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/notebook-shim-0.2.4-pyhd8ed1ab_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/nspr-4.36-h5888daf_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/nspr-4.37-h29cc59b_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/nss-3.114-hc3c8bcf_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/numpy-1.26.4-py312heda63a1_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/nvidia-ml-py-12.575.51-pyhd8ed1ab_0.conda
@@ -550,7 +550,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/e7/ef/b1e3503c2d8e9b1e9e351315426f5d94a5cd3a2cb344b74f3cbdbf0e2b6f/apache_airflow_providers_common_io-1.6.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/07/07/5dc81b135b000620bde3466734e21f7a2c2ad9e8f4f0a559de8879f21334/apache_airflow_providers_common_sql-1.27.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/64/e9/a75c7cb806f054764454686651375c2f99aeabbe90cc2fc7d37666d93dbf/apache_airflow_providers_smtp-2.1.1-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/f1/a8/ca60163925c607eb0df8b251b812ad1d11fdcd65e888328e7dc5513ff108/apache_airflow_providers_standard-1.4.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/08/0c/5893b77b5b5fae795cc47ba67e33ae28ffae0b4d3b70f028f1e35d99f5ad/apache_airflow_providers_standard-1.4.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/68/94/1117889adfad9a0c031951ddd97f8c729b5eae44ca60b6cbf18881886e08/apache_airflow_task_sdk-1.0.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/31/da/e42d7a9d8dd33fa775f467e4028a47936da2f01e4b0e561f9ba0d74cb0ca/argcomplete-3.6.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/10/cb/f2ad4230dc2eb1a74edf38f1a38b9b52277f75bef262d8908e60d957e13c/blinker-1.9.0-py3-none-any.whl
@@ -1165,10 +1165,10 @@ packages:
   - apache-airflow>=2.10.0
   - apache-airflow-providers-common-compat>=1.6.1
   requires_python: ~=3.10
-- pypi: https://files.pythonhosted.org/packages/f1/a8/ca60163925c607eb0df8b251b812ad1d11fdcd65e888328e7dc5513ff108/apache_airflow_providers_standard-1.4.0-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/08/0c/5893b77b5b5fae795cc47ba67e33ae28ffae0b4d3b70f028f1e35d99f5ad/apache_airflow_providers_standard-1.4.1-py3-none-any.whl
   name: apache-airflow-providers-standard
-  version: 1.4.0
-  sha256: 5f6ae89728008dcf39b9257a83602e6d260b4acd57a68df58c502dfb7571d9e6
+  version: 1.4.1
+  sha256: 44a22b9c0d892ae3fd4e4c4dc108f79575f254c9b64645223b99528db4d0e6af
   requires_dist:
   - apache-airflow>=2.10.0
   requires_python: ~=3.10
@@ -2331,7 +2331,7 @@ packages:
   license: BSD-2-Clause
   license_family: BSD
   purls:
-  - pkg:pypi/decorator?source=compressed-mapping
+  - pkg:pypi/decorator?source=hash-mapping
   size: 14129
   timestamp: 1740385067843
 - conda: https://conda.anaconda.org/conda-forge/noarch/defusedxml-0.7.1-pyhd8ed1ab_0.tar.bz2
@@ -3521,7 +3521,7 @@ packages:
   license: BSD-3-Clause
   license_family: BSD
   purls:
-  - pkg:pypi/jinja2?source=compressed-mapping
+  - pkg:pypi/jinja2?source=hash-mapping
   size: 112714
   timestamp: 1741263433881
 - conda: https://conda.anaconda.org/conda-forge/noarch/joblib-1.5.1-pyhd8ed1ab_0.conda
@@ -5835,18 +5835,18 @@ packages:
   - pkg:pypi/notebook-shim?source=hash-mapping
   size: 16817
   timestamp: 1733408419340
-- conda: https://conda.anaconda.org/conda-forge/linux-64/nspr-4.36-h5888daf_0.conda
-  sha256: a87471d9265a7c02a98c20debac8b13afd80963968ed7b1c1c2ac7b80955ce31
-  md5: de9cd5bca9e4918527b9b72b6e2e1409
+- conda: https://conda.anaconda.org/conda-forge/linux-64/nspr-4.37-h29cc59b_0.conda
+  sha256: 472306630dcd49a221863b91bd89f5b8b81daf1b99adf1968c9f12021176d873
+  md5: d73ccc379297a67ed921bd55b38a6c6a
   depends:
   - __glibc >=2.17,<3.0.a0
-  - libgcc >=13
-  - libstdcxx >=13
+  - libgcc >=14
+  - libstdcxx >=14
   license: MPL-2.0
   license_family: MOZILLA
   purls: []
-  size: 230204
-  timestamp: 1729545773406
+  size: 230951
+  timestamp: 1752841107697
 - conda: https://conda.anaconda.org/conda-forge/linux-64/nss-3.114-hc3c8bcf_0.conda
   sha256: 3e45d030e590bb73c7dc6e48217ba944b126e5132d7ea70ef5ef7fd04e2063ac
   md5: 7d5713b9f8346d094ac046277db1c12b

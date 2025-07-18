@@ -29,16 +29,19 @@ Initial benchmarks were considered but not implemented due to time constraint re
 
 ```
 version-cv/
-├── CITATION.cff
-├── LICENSE
+├── cloud
 ├── data
 ├── docs
 ├── models
-├── modules
 ├── notebooks
+├── .gitattributes
+├── .gitignore
+├── CITATION.cff
+├── LICENSE
+├── README.md
+├── install_pixi.sh
 ├── pixi.lock
-├── pixi.toml
-└── README.md
+└── pixi.toml
 ```
 
 ---
