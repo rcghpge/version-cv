@@ -3,6 +3,7 @@ __mojocache__/
 __pycache__/
 *.py[cod]
 *.egg
+*.egg-info
 *.egg-info/
 dist/
 build/
@@ -54,6 +55,7 @@ mathwriting/
 mathwriting-2025/
 math_dataset/
 math/
+modules/
 hwzips/
 
 # Node / frontend
@@ -84,7 +86,7 @@ yarn-error.log
 # Allowed outputs
 !docs/*.html
 !pixi.lock
+!pixi.lock.bak
+!pixi.toml.bak
 
-# Others
-*.egg-info
 
