@@ -51,7 +51,6 @@ env/
 *.keras
 dev/
 img/
-models/
 models/model2_savedmodel/
 sandbox/
 MathWriting-human/
@@ -60,7 +59,7 @@ mathwriting-2025/
 math_dataset/
 math/
 modules/
-hwzips/
+
 
 # Node / frontend
 node_modules/
@@ -95,5 +94,3 @@ yarn-error.log
 !pixi.toml.bak
 
 
-models/
-modules/
