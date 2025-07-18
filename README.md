@@ -94,9 +94,6 @@ pixi run jupyter lab
 python models/basemodel.py
 ```
 
-* Outputs metrics: accuracy, mAP, symbolic parsing quality
-* Saves predictions to `predictions/`
-
 3. View logs and summaries:
 
 * `models/summary/`
@@ -111,7 +108,7 @@ Jupyter Lab:
 jupyter lab
 ```
 
-Run Jupyter notebooks `cv_basemodel.ipynb` or `vision_transformer.ipynb` from the `notebooks/` folder.
+Run Jupyter notebooks `basemodel.ipynb` or `mathwriting.ipynb` from the `notebooks/` folder.
 
 These provide experiments and visualizations for ongoing development.
 
