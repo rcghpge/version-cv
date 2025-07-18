@@ -1,7 +1,7 @@
 
 # Scikit-learn in Mojo Example
 """
-This Scikit-Learn model is not fine-tuned or robustly built. It is an example prototype build of 
+This Scikit-Learn model is not fine-tuned or robustly built. It is an example prototype build for 
 ML/DL in the Mojo programming language.
 """
 
