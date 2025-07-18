@@ -3,7 +3,6 @@
 [![Dependabot Updates](https://github.com/rcghpge/version-cv/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/rcghpge/version-cv/actions/workflows/dependabot/dependabot-updates)
 [![CodeQL Advanced](https://github.com/rcghpge/version-cv/actions/workflows/codeql.yml/badge.svg)](https://github.com/rcghpge/version-cv/actions/workflows/codeql.yml)
 [![Bandit](https://github.com/rcghpge/version-cv/actions/workflows/bandit.yml/badge.svg)](https://github.com/rcghpge/version-cv/actions/workflows/bandit.yml)
-[![pages-build-deployment](https://github.com/rcghpge/version-cv/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/rcghpge/version-cv/actions/workflows/pages/pages-build-deployment)
 
 
 A research-driven deep learning repository for mathematical problem solving, image recognition, and symbolic diagram parsing for mathematical reasoning. It builds on research and development from `version-tab`, a project focused on mathematical problem solving, symbolic reasoning, math-based vectorization, and large language model (LLM) development in tabular formats. `version-cv` builds from this for vision-based tasks.
