@@ -4,7 +4,7 @@
 [![Bandit](https://github.com/rcghpge/version-cv/actions/workflows/bandit.yml/badge.svg)](https://github.com/rcghpge/version-cv/actions/workflows/bandit.yml)
 
 
-A research-driven deep learning repository for mathematical problem solving, image recognition, and symbolic diagram parsing for mathematical reasoning. It builds on research and development from `version-tab`, a project focused on mathematical problem solving, symbolic reasoning, math-based vectorization, and large language model (LLM) development in tabular formats. `version-cv` builds from this for vision-based tasks.
+A research-driven deep learning repository for mathematical problem solving, image recognition, and mathematical comprehension and reasoning in LLMs. It builds on research and development from `version-tab`, a project focused on mathematical problem solving, symbolic reasoning, math-based vectorization, and large language model (LLM) development in tabular formats. `version-cv` builds from this for vision-based tasks.
 
 The project is developed from a software development kit deisgned for data science workflows and other domains.
 
