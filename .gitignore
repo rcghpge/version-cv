@@ -78,7 +78,6 @@ yarn-error.log
 *.cpp
 *.rs
 *.rlib
-*.mojo
 *.cu
 *.cuh
 *.pt
