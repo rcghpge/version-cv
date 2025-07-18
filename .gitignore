@@ -91,5 +91,5 @@ yarn-error.log
 !pixi.lock
 !pixi.lock.bak
 !pixi.toml.bak
-
+!sandbox/
 
