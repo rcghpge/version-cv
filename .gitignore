@@ -44,6 +44,8 @@ env/
 *.log
 *.inkml
 *.jsonl
+*.data
+*.index
 
 # Assignments & project workflows
 *.keras
@@ -81,6 +83,7 @@ yarn-error.log
 *.cuh
 *.pt
 *.pth
+*.pb
 .cache
 
 # Allowed outputs
