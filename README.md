@@ -73,6 +73,7 @@ pixi info
 
 ## 🚀 Quick Start
 
+On machines with low compute these may not run as fast. Run Jupyter notebooks to see how models were designed.
 ### Option 1: Using Pixi shell
 
 ```bash
@@ -98,10 +99,6 @@ pixi run jupyter lab
 ```bash
 python models/basemodel.py
 ```
-
-3. View logs and summaries:
-
-* `models/summary/`
 
 ---
 
