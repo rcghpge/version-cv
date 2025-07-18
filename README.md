@@ -21,7 +21,7 @@ The project is developed from a software development kit deisgned for data scien
 * [MathWriting](https://huggingface.co/datasets/mathwriting)
 * [DeepMind Mathematics Dataset](https://github.com/google-deepmind/mathematics_dataset)
 
-Initial benchmarks were considered but not implemented due to time constraint research and builds. They are provided in `data/` and `docs/` directories.
+Initial benchmarks were considered but not implemented due to time constraint research and builds. They are provided in [`data/`](https://github.com/rcghpge/version-cv/tree/main/data) and [`docs/`](https://github.com/rcghpge/version-cv/tree/main/docs) directories.
 
 ---
 
