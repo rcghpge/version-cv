@@ -50,6 +50,8 @@ This project is built with [Pixi](https://pixi.sh/latest/) to manage environment
 ```bash
 # Install Pixi if not already installed
 curl -sSf https://pixi.sh/install.sh | bash
+Or
+./install_pixi.sh
 
 # Initialize Pixi (creates pixi.toml and pixi.lock)
 pixi init
@@ -108,9 +110,7 @@ Jupyter Lab:
 jupyter lab
 ```
 
-Run Jupyter notebooks `basemodel.ipynb` or `mathwriting.ipynb` from the `notebooks/` folder.
-
-These provide experiments and visualizations for ongoing development.
+Run Jupyter notebooks `basemodel.ipynb` or `mathwriting.ipynb` from the `notebooks/` folder for exploratory workflows.
 
 ---
 
@@ -140,7 +140,7 @@ Security and reproducibility improvements are important and welcome via PR's
 To run manually:
 
 ```bash
-bandit -r models/ modules/ notebooks/
+bandit -r models/ notebooks/
 ```
 
 ### pip-audit
