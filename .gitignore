@@ -51,6 +51,7 @@ env/
 *.keras
 dev/
 img/
+models/
 sandbox/
 MathWriting-human/
 mathwriting/
