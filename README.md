@@ -15,7 +15,7 @@ A research-driven deep learning repository for mathematical problem solving, ima
 
 ## 📊 Key Datasets
 
-* [MathWriting](https://huggingface.co/datasets/mathwriting)
+* [MathWriting](https://huggingface.co/datasets/deepcopy/MathWriting-human)
 * [DeepMind Mathematics Dataset](https://github.com/google-deepmind/mathematics_dataset)
 
 Initial benchmarks were considered but not implemented due to time constraint research and builds. They are provided in [`data/`](https://github.com/rcghpge/version-cv/tree/main/data) and [`docs/`](https://github.com/rcghpge/version-cv/tree/main/docs) directories.
