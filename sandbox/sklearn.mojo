@@ -123,3 +123,8 @@ fn generate_models() raises:
 # Run Scikit-learn models
 fn main() raises:
     generate_models()
+
+# Example usage:
+# mojo sklearn.mojo
+# Or run
+# pixi run mojo sklearn.mojo
