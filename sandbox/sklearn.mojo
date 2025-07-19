@@ -39,7 +39,7 @@ fn generate_models() raises:
     var y_train = split_result[2]
     var y_test = split_result[3]
 
-    # Now X_train, X_test, y_train, y_test are PythonObjects representing your split data
+    # X_train, X_test, y_train, y_test are now PythonObjects representing your split data
     print("Train Test Split:")
     print("Training set shape:", X_train.shape)
     print("Testing set shape:", X_test.shape)
