@@ -144,7 +144,7 @@ bandit -r models/ notebooks/
 
 ### pip-audit
 
-[pip-audit](https://pypi.org/project/pip-audit/)  is a tool for scanning Python dependencies and environments for packages for vulnerabilities.
+[pip-audit](https://pypi.org/project/pip-audit/)  is a tool for scanning Python dependencies and packages in your environment for vulnerabilities.
 
 To run:
 
