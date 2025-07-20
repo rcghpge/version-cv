@@ -6,7 +6,9 @@
 
 Version-cv is a research-driven deep learning repository focused on mathematical problem solving, image recognition, and mathematical reasoning in large language models (LLMs). It builds on the foundation of [version-tab](https://github.com/rcghpge/version-tab), which emphasizes mathematical symbolic reasoning, math-based vectorization, and tabular LLM development.
 
-Extending this work into the visual domain, version-cv builds for vision-based tasks and multimodal understanding. It integrates PyFlink for distributed data processing, Apache Atlas for metadata and lineage tracking, Apache Airflow for workflow orchestration, PyArrow for efficient in-memory columnar data interchange, and [Mojo](https://www.modular.com/mojo) for high-performance AI ML/DL development. Together, these technologies enable scalable, reproducible research across structured and unstructured data pipelines. Due to time constraints during the project's development, many of these tools were not fully leveraged—but they are included as a contribution to the open-source community for continued research, experimentation, and advancement in this space.
+Extending this work into the visual domain, version-cv builds for vision-based tasks and multimodal understanding. It integrates PyFlink for distributed data processing, Apache Atlas for metadata and lineage tracking, Apache Airflow for workflow orchestration, PyArrow for efficient in-memory columnar data interchange, and [Mojo](https://www.modular.com/mojo) for high-performance AI ML/DL development. Together, these technologies enable scalable, reproducible research across structured and unstructured data pipelines. 
+
+Due to time constraints during the project's development, many of these tools were not fully leveraged—but they are included as a contribution to the open-source community for continued research, experimentation, and advancement in this space.
 
 **Research Publications/References:** 
 - [Gervais et al., MathWriting: A Dataset for Handwritten Mathematical Expression Recognition](https://arxiv.org/abs/2404.10690)
