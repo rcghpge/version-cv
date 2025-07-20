@@ -4,8 +4,9 @@
 [![Bandit](https://github.com/rcghpge/version-cv/actions/workflows/bandit.yml/badge.svg)](https://github.com/rcghpge/version-cv/actions/workflows/bandit.yml)
 
 
-A research-driven deep learning repository for mathematical problem solving, image recognition, and mathematical comprehension and reasoning in LLMs. It builds on research and development from `version-tab`, a project focused on mathematical problem solving, symbolic reasoning, math-based vectorization, and large language model (LLM) development in tabular formats. `version-cv` builds from this for vision-based tasks.
+Version-cv is a research-driven deep learning repository focused on mathematical problem solving, image recognition, and mathematical reasoning in large language models (LLMs). It builds on the foundation of version-tab, which emphasizes symbolic reasoning, math-based vectorization, and tabular LLM development.
 
+Extending this work into the visual domain, version-cv builds for vision-based tasks and multimodal understanding. It includes technologies from the Apache Software Foundation—including PyFlink for distributed data processing, Apache Atlas for metadata and lineage tracking, and Apache Airflow for workflow orchestration—enabling scalable, reproducible research across structured and unstructured data pipelines.
 
 **Research Publications/References:** 
 - [Gervais et al., MathWriting: A Dataset for Handwritten Mathematical Expression Recognition](https://arxiv.org/abs/2404.10690)
