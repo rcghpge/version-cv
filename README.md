@@ -12,6 +12,7 @@ Extending this work into the visual domain, version-cv builds for vision-based t
 - [Gervais et al., MathWriting: A Dataset for Handwritten Mathematical Expression Recognition](https://arxiv.org/abs/2404.10690)
 - [Saxton et al., Analyzing Mathematical Reasoning Abilities of Neural Models](https://openreview.net/pdf?id=H1gR5iR5FX)
 
+
 See Research & References section below for a broader scope of the research for this project.
 
 ---
