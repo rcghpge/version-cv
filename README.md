@@ -125,7 +125,7 @@ Run Jupyter notebooks `basemodel.ipynb` or `mathwriting.ipynb` from the `noteboo
   [arXiv:2404.10690](https://arxiv.org/abs/2404.10690)
 * Saxton et al., *Analyzing Mathematical Reasoning Abilities of Neural Models*
   [arXiv:1904.01557](https://arxiv.org/abs/1904.01557)
-* OpenAI, *Improving Mathematical Reasoning with Process Supervision* (2022)
+* OpenAI, *Improving Mathematical Reasoning with Process Supervision* (2023)
   [Blog Link](https://openai.com/index/improving-mathematical-reasoning-with-process-supervision/)
 * Hendrycks et al., *Measuring Mathematical Problem Solving With the MATH Dataset*
   [arXiv:2103.03874](https://arxiv.org/abs/2103.03874)
