@@ -70,7 +70,7 @@ pixi install
 # Enter Pixi environment
 pixi shell
 
-# Pixi Environment information
+# Pixi environment information
 pixi info
 ```
 
