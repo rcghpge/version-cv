@@ -9,7 +9,7 @@ version = "0.1.0"
 
 [dependencies]
 datasets = ">=3.6.0,<4"
-transformers = ">=4.53.2,<5"
+transformers = ">=4.53.3,<5"
 tensorflow = ">=2.18.0,<3"
 jupyter = ">=1.1.1,<2"
 notebook = ">=7.4.4,<8"
