@@ -78,7 +78,7 @@ pixi info
 
 ---
 
-## 🚀 Model Dev - Data Preprocessing/Visualization + ML/DL 
+## 🚀 Model Dev - Data Preprocessing/Visualization - ML/DL 
 
 On machines with low compute these may not run as fast. Run Jupyter notebooks to see how models were designed.
 ### Option 1: Using Pixi shell
