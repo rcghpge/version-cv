@@ -60,7 +60,7 @@ This project is built with [Pixi](https://pixi.sh/latest/) to manage environment
 # Install Pixi if not already installed
 curl -sSf https://pixi.sh/install.sh | bash
 
-# Or run the install script
+# Or run the installation script
 ./install_pixi.sh
 
 # Initialize Pixi (creates pixi.toml and pixi.lock)
