@@ -67,6 +67,8 @@ Prototypes were also designed but not fully built out one of which is a `GPT2 pr
 * Confusion matrices and ROC curves for binary task
 * EDA
 
+  See Visual Overview section below
+  
 ### Problem Formulation
 
 * **Input / Output:** 
