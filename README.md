@@ -128,10 +128,73 @@ Prototypes were also designed but not fully built out one of which is a `GPT2 pr
 
 ---
 
-* **Visualizations:** 
-  ![](assets/modelcomparisons.png) 
-  ![](assets/gpt2confusionmatrix.png) 
-  ![](assets/prototypesroccurve.png)
+## 📊 Visual Overview
+
+Click images to enlarge
+
+---
+
+### EfficientNetB0 Results
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/efficientneb0.png" alt="EfficientNetB0 Output" width="400"/></td>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/samplemodeloutputs.png" alt="Sample Model Outputs" width="400"/></td>
+  </tr>
+</table>
+
+---
+
+### GPT-2 Results
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/gpt2.png" alt="GPT-2 Output" width="400"/></td>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/gpt2confusionmatrix.png" alt="Confusion Matrix" width="400"/></td>
+  </tr>
+</table>
+
+---
+
+### Word2Vec + LSTM Results
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/word2vec.png" alt="Word2Vec Output" width="400"/></td>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/word2vecconfusionmatrix.png" alt="Word2Vec Confusion Matrix" width="400"/></td>
+  </tr>
+</table>
+
+---
+
+### XGBoost Results
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/xgboost.png" alt="XGBoost Output" width="400"/></td>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/xgboostconfusionmatrix.png" alt="XGBoost Confusion Matrix" width="400"/></td>
+  </tr>
+</table>
+
+---
+
+### Inference + Diagnostics
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/normalizedmodelinference.png" alt="Normalized Model Inference" width="400"/></td>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/prototypesroccurve.png" alt="Prototype ROC Curve" width="400"/></td>
+  </tr>
+</table>
+
+---
+
+### Research Samples
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/deepmind_latex_expression.png" alt="LaTeX Expression" width="400"/></td>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/formula_with_ocr_boxes.png" alt="Formula with OCR Boxes" width="400"/></td>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/formula_with_boxes.png" alt="Formula with Bounding Boxes" width="400"/></td>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/combined_synthetic_ink.png" alt="Synthetic Ink Sample" width="400"/></td>
+  </tr>
+</table>
 
 ---
 
