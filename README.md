@@ -210,11 +210,11 @@ Click images to enlarge
 
 ### Conclusions
 
-* EfficientNetB0 was optimal for symbolic image classification 
-* GPT2 achieved strong results for token sequence inputs 
-* MathWriting binary label task showed robust generalization from shuffled samples 
-* Word2Vec + XGBoost was lightweight and interpretable
-* GPT2 prototype outperformed all model builds (trained on full dataset)
+* EfficientNetB0 infernce on symbolic image classification on math-based images challenges the model   
+* GPT2 struggles to generate results for token sequence inputs 
+* MathWriting binary label task showed promising generalization from shuffled samples 
+* Word2Vec + XGBoost were generally lightweight and interpretable - XGBoost generalized well when comparing confusion matrix results
+* GPT2 prototype outperformed all model builds (though was trained on full `.parquet` dataset)
 
 ---
 
