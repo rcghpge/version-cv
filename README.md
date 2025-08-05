@@ -9,10 +9,12 @@
 ## Overview
 
 * **Definition of the tasks / challenge** 
-  The project explores symbolic reasoning and multimodal classification using visual and textual inputs. A binary classification task was constructed using the Hugging Face version of the MathWriting dataset by shuffling LaTeX ID and image pairings to generate synthetic binary labels (0 or 1).
+
+The project explores symbolic reasoning and multimodal classification using visual and textual inputs. A binary classification task was constructed using the Hugging Face version of the MathWriting dataset by shuffling LaTeX ID and image pairings to generate synthetic binary labels (0 or 1).
 
 * **Approach** 
-  Four models were developed and compared:
+
+Four models were developed and compared:
   - `EfficientNetB0` for visual symbol classification
   - `GPT2` fine-tuned on LaTeX token sequences
   - `Word2Vec` for symbolic embeddings
