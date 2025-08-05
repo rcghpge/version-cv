@@ -2,7 +2,7 @@
 
 * **One Sentence Summary** 
 
-  This repository symbolic math classification using image-based, text-based, and classical learning models including EfficientNetB0, GPT2, Word2Vec, and XGBoost.
+  This is a GitHub repository for ML/DL in symbolic math classification using image-based, text-based, and classical learning models including EfficientNetB0, GPT2, Word2Vec, and XGBoost.
 
 ---
 
@@ -16,7 +16,9 @@
   - `EfficientNetB0` for visual symbol classification
   - `GPT2` fine-tuned on LaTeX token sequences
   - `Word2Vec` for symbolic embeddings
-  - `XGBoost` applied to Word2Vec vectors
+  - `XGBoost` applied to TF-IDF vectors
+
+Prototypes were also designed but not fully built out one of which is a `GPT2 prototype`
 
 * **Summary of the performance achieved** 
   - EfficientNetB0: ~51% accuracy 
@@ -33,15 +35,20 @@
 
 * **Data:**
   * **Type:**
-    - Image: 224×224 LaTeX-rendered symbols (PNG)
+    - Image: 224×224 LaTeX-rendered symbols (image column - .parquet)
     - Text: Tokenized LaTeX expressions
     - Output: Multi-class and binary labels
   * **Size:**
-    - ~4,000 total samples (multi-class)
-    - ~2,000 binary samples from MathWriting
+    - ~230,000 total samples (multi-class)
+    - Binary samples from MathWriting 
+    - 1.25 GB
+    - original dataset not fully utilized 
   * **Split:**
-    - Multi-class: 2800 train / 600 test / 600 val 
-    - Binary: 1600 train / 200 test / 200 val
+    - Only about 10% of the training data was utilized (~18,400 training samples, ~2,300 validation samples)
+    - Only the GPT2 prototype utilized the full 1.25GB dataset
+    - Multi-class: 90% train / 10% val 
+    - Binary: 90% train / 10% val
+    - Not enough time to full test models
 
 #### Preprocessing / Clean up
 
@@ -55,17 +62,20 @@
 * Token length distributions, symbol histograms 
 * t-SNE clustering of Word2Vec vectors 
 * Confusion matrices and ROC curves for binary task
+* EDA
 
 ### Problem Formulation
 
 * **Input / Output:** 
   - Input: math symbol image or LaTeX sequence 
   - Output: categorical label or binary label
+  - Original Input: .inkML data but instructed not to develop these models
 
 * **Models:** 
   - `EfficientNetB0` (image classifier) 
   - `GPT2` (LaTeX sequence transformer) 
   - `Word2Vec` + `XGBoost` (vectorized + classical)
+  - `GPT2 prototype` (LaTeX sequence tranformer optimized)
 
 * **Loss, Optimizer, Hyperparameters:** 
   - Loss: Categorical/Binary Crossentropy 
@@ -77,13 +87,14 @@
 ### Training
 
 * **Software & Hardware:** 
+  - Ubuntu 24.04 LTS WSL2
   - Python 3.12.11 
-  - TensorFlow 2.15, 2.18, and 2.19, HuggingFace Transformers, Gensim, XGBoost 
+  - TensorFlow 2.15, 2.18, and 2.19, HuggingFace Transformers, Gensim, XGBoost (newer TF versions for cloud dev) 
   - Trained on: Dell Precision Workstation 5510, Lambda Cloud compute - NVIDIA RTX A6000, NVIDIA Quadro RTX 6000, NVIDIA GH200 Grace Hopper Superchip, NVIDIA A100 Tensor Core GPU, and NVIDIA A10 Tensor Core GPU 
 
 * **Training time:** 
 
-  - Full training, tuning, and experimentation across all models took a couple of weeks 1-2.
+  - Full training, tuning, and experimentation across all models took a couple of weeks ~1-3.
 
 * **Training curves:** 
 
@@ -97,7 +108,8 @@
   - Symbol label imbalance and binary class noise 
   - Feature drift during Word2Vec–XGBoost transfer
   - Scoping the work only to what is understood as data science today
-
+  - Time constraints and restrictions on what to build and how to build
+  - Complete Python built models not developed due to time constraints
 
 ### Performance Comparison
 
@@ -147,13 +159,15 @@
 ```bash
 git clone https://github.com/rcghpge/version-cv.git
 cd version-cv
-pixi install  # Or: pip install -r requirements.txt
+pixi shell
+pixi install 
+pixi info
 ```
 
-## Launch Jupyter Notebooks
+## Launch Jupyter Lab
 
 ```bash
-jupyter notebook notebooks/
+jupyter lab
 ```
 
 Notebook index:
@@ -175,14 +189,12 @@ Notebook index:
 ├── CITATION.cff              # Citation metadata
 ├── LICENSE                   # Open-source license
 ├── README.md                 # Main project documentation
-├── assets/                   # Diagrams, plots, confusion matrices, LaTeX images
+├── assets/                   # Diagrams, plots, confusion matrices, LaTeX images 
 ├── cloud/                    # LambdaCloud configs and scripts
 ├── data/                     # MathWriting, DeepMind MATH, CSAI, and related corpora
 ├── docs/                     # Academic PDFs and source papers
 ├── install_pixi.sh           # Environment setup script
-├── logs/                     # Training and evaluation logs
 ├── models/                   # Saved model files (.h5, .keras, .json)
-├── modules/                  # DataLoader and utility code
 ├── notebooks/                # All core modeling and evaluation notebooks
 ├── pixi.lock                 # Pixi environment lock
 ├── pixi.toml                 # Pixi environment definition
@@ -195,15 +207,16 @@ Notebook index:
 
 ```bash
 # Preferred
+pixi shell
 pixi install
 
-# Or use pip
-pip install -r requirements.txt
+# Virtual evironment setup
+pixi info
 ```
 
 Dependencies:
 
- * `tensorflow`==2.15, 2.18, 2.19
+ * `tensorflow`==2.15, 2.18, 2.19 (newer versions for cloud dev)
  * `transformers`
  * `gensim`
  * `xgboost`
@@ -223,7 +236,7 @@ Dependencies:
 Run preprocessing via:
 
 ```bash
-jupyter notebook notebooks/<notebooks>.ipynb
+jupyter lab notebooks/<notebooks>.ipynb
 ```
 
 ---
@@ -235,13 +248,13 @@ All model training is notebook-based. Start with:
  * basemodel.ipynb for image classification
  * model2.ipynb for text modeling
  * model3.ipynb and model4.ipynb for classical approaches
- * protopes.ipynb for GPT-based designs
+ * protopes.ipynb for GPT-based designs from prototyping
 
 ## Performance Evaluation
 
 Use:
 ```bash
-jupyter notebook notebooks/comparemodels.ipynb
+jupyter lab notebooks/comparemodels.ipynb
 ```
 To reproduce visualizations, metrics, and ROC plots.
 
