@@ -338,7 +338,7 @@ To reproduce visualizations, metrics, and ROC plots.
 
 ## Citations
 
-Further citations of works cited are referenced at `data/` and `docs/` 
+Further citation of works cited are referenced at `data/` and `docs/` 
 
 * Tan & Le (2019). EfficientNet
 * Vaswani et al. (2017). Attention Is All You Need
