@@ -90,7 +90,7 @@ Prototypes were also designed but not fully built out one of which is a `GPT2 pr
   - Ubuntu 24.04 LTS WSL2
   - Python 3.12.11 
   - TensorFlow 2.15, 2.18, and 2.19, HuggingFace Transformers, Gensim, XGBoost (newer TF versions for cloud dev) 
-  - Trained on: Dell Precision Workstation 5510, Lambda Cloud compute - NVIDIA RTX A6000, NVIDIA Quadro RTX 6000, NVIDIA GH200 Grace Hopper Superchip, NVIDIA A100 Tensor Core GPU, and NVIDIA A10 Tensor Core GPU 
+  - Trained on: Dell Precision Workstation 5510, Lambda Cloud compute - NVIDIA RTX A6000, NVIDIA Quadro RTX 6000, NVIDIA GH200 Grace Hopper Superchip, NVIDIA A100 Tensor Core GPU, and NVIDIA A10 Tensor Core GPU + CPU clusters 
 
 * **Training time:**
 * 
