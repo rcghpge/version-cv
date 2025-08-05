@@ -50,7 +50,6 @@ Prototypes were also designed but not fully built out one of which is a `GPT2 pr
     - GPT2 prototype utilized the full 1.25GB dataset
     - Multi-class: 90% train / 10% val 
     - Binary: 90% train / 10% val
-    - Did not fully test builds
       
 #### Preprocessing / Clean up
 
@@ -71,7 +70,6 @@ Prototypes were also designed but not fully built out one of which is a `GPT2 pr
 * **Input / Output:** 
   - Input: math symbol image or LaTeX sequence 
   - Output: categorical label or binary label
-  - Original Input: .inkML data but instructed not to develop these models
 
 * **Models:** 
   - `EfficientNetB0` (image classifier) 
@@ -113,6 +111,8 @@ Prototypes were also designed but not fully built out one of which is a `GPT2 pr
   - Scoping the work only to what is understood as data science today
   - Time constraints and restrictions on what to build and how to build
   - Complete Python built models not developed due to time constraints
+  - Scope of requirements for academic level projects
+  - Did not fully test builds
 
 ### Performance Comparison
 
@@ -141,7 +141,7 @@ Prototypes were also designed but not fully built out one of which is a `GPT2 pr
 * GPT2 achieved strong results for token sequence inputs 
 * MathWriting binary label task showed robust generalization from shuffled samples 
 * Word2Vec + XGBoost was lightweight and interpretable
-* GPT2 prototype outperformed all model builds (was not fully built)
+* GPT2 prototype outperformed all model builds (trained on full dataset)
 
 ---
 
@@ -188,7 +188,7 @@ Notebook index:
 ## Overview of files in repository
 
 ```bash
-.
+version-cv/
 ├── CITATION.cff              # Citation metadata
 ├── LICENSE                   # Open-source license
 ├── README.md                 # Main project documentation
@@ -248,10 +248,10 @@ jupyter lab notebooks/<notebooks>.ipynb
 
 All model training is notebook-based. Start with:
 
- * basemodel.ipynb for image classification
- * model2.ipynb for text modeling
- * model3.ipynb and model4.ipynb for classical approaches
- * protopes.ipynb for GPT-based designs from prototyping
+ * `basemodel.ipynb` for image classification
+ * `model2.ipynb` for text modeling
+ * `model3.ipynb` and `model4.ipynb` for classical approaches
+ * `protopes.ipynb` for GPT-based designs from prototyping
 
 ## Performance Evaluation
 
