@@ -187,7 +187,6 @@ Click images to enlarge
 <table>
   <tr>
     <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/samplemodeloutputs.png" alt="Sample Model Outputs" width="300"/></td>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/normalizedmodelinference.png" alt="Normalized Model Inference" width="300"/></td>
   </tr>
 </table>
 
