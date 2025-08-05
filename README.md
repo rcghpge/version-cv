@@ -112,7 +112,7 @@ Prototypes were also designed but not fully built out one of which is a `GPT2 pr
   - Time constraints and restrictions on what to build and how to build
   - Complete Python built models not developed due to time constraints
   - Scope of requirements for academic level projects
-  - `.parquet` dataset not fully utilized including origianl `.inkml` dataset 
+  - `.parquet` dataset not fully utilized including original `.inkml` dataset 
   - Did not fully test builds
 
 ### Performance Comparison
