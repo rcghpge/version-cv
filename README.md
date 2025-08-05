@@ -135,7 +135,8 @@ Click images to enlarge
 ---
 
 ### EfficientNetB0 Results
-<table>
+
+<table align="center" style="margin:auto">
   <tr>
     <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/efficientneb0.png" alt="EfficientNetB0 Output" width="400" height="500"/></td>
   </tr>
@@ -184,12 +185,12 @@ Click images to enlarge
 ---
 
 ### Model Prototyping + Inference
-<table>
+
+<table align="center" style="margin:auto">
   <tr>
     <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/samplemodeloutputs.png" alt="Sample Model Outputs" width="300"/></td>
   </tr>
 </table>
-
 ---
 
 ### Research Samples
