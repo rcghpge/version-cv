@@ -194,7 +194,7 @@ Click images to enlarge
 </table>
 ---
 
-### Research Samples
+### Prototype Samples
 <table>
   <tr>
     <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/deepmind_latex_expression.png" alt="LaTeX Expression" width="325" height="350"/></td>
