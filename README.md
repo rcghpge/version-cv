@@ -137,7 +137,7 @@ Click images to enlarge
 ### EfficientNetB0 Results
 <table>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/efficientneb0.png" alt="EfficientNetB0 Output" width="400"/></td>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/efficientneb0.png" alt="EfficientNetB0 Output" width="400" height="500"/></td>
   </tr>
 </table>
 
@@ -148,16 +148,6 @@ Click images to enlarge
   <tr>
     <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/gpt2.png" alt="GPT-2 Output" width="400"/></td>
     <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/gpt2confusionmatrix.png" alt="GPT-2 Confusion Matrix" width="400"/></td>
-  </tr>
-</table>
-
----
-
-### GPT-2 Prototype Results
-<table>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/prototypedrafts.png" alt="Prototype Drafts" width="400"/></td>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/prototypesroccurve.png" alt="Prototype ROC Curve" width="400"/></td>
   </tr>
 </table>
 
@@ -183,11 +173,21 @@ Click images to enlarge
 
 ---
 
+### GPT-2 Prototype Results
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/prototypesroccurve.png" alt="Prototype Drafts" width="400"/></td>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/prototypes.png" alt="Prototype ROC Curve" width="400"/></td>
+  </tr>
+</table>
+
+---
+
 ### Model Prototyping + Inference
 <table>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/samplemodeloutputs.png" alt="Sample Model Outputs" width="400"/></td>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/normalizedmodelinference.png" alt="Normalized Model Inference" width="400"/></td>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/samplemodeloutputs.png" alt="Sample Model Outputs" width="300"/></td>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/normalizedmodelinference.png" alt="Normalized Model Inference" width="300"/></td>
   </tr>
 </table>
 
