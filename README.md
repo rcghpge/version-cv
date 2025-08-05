@@ -147,9 +147,6 @@ Click images to enlarge
 <table>
   <tr>
     <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/gpt2.png" alt="GPT-2 Output" width="400"/></td>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/latextokensequencelengths.png" alt="Token Sequence Lengths" width="400"/></td>
-  </tr>
-  <tr>
     <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/gpt2confusionmatrix.png" alt="GPT-2 Confusion Matrix" width="400"/></td>
   </tr>
 </table>
