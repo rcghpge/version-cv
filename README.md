@@ -44,12 +44,12 @@ Prototypes were also designed but not fully built out one of which is a `GPT2 pr
     - 1.25 GB
     - original dataset not fully utilized 
   * **Split:**
-    - Only about 10% of the training data was utilized (~18,400 training samples, ~2,300 validation samples)
-    - Only the GPT2 prototype utilized the full 1.25GB dataset
+    - ~10% of the training data was utilized (~18,400 training samples, ~2,300 validation samples)
+    - GPT2 prototype utilized the full 1.25GB dataset
     - Multi-class: 90% train / 10% val 
     - Binary: 90% train / 10% val
-    - Not enough time to full test models
-
+    - Did not fully test builds
+      
 #### Preprocessing / Clean up
 
 * Image resizing and normalization 
@@ -92,9 +92,10 @@ Prototypes were also designed but not fully built out one of which is a `GPT2 pr
   - TensorFlow 2.15, 2.18, and 2.19, HuggingFace Transformers, Gensim, XGBoost (newer TF versions for cloud dev) 
   - Trained on: Dell Precision Workstation 5510, Lambda Cloud compute - NVIDIA RTX A6000, NVIDIA Quadro RTX 6000, NVIDIA GH200 Grace Hopper Superchip, NVIDIA A100 Tensor Core GPU, and NVIDIA A10 Tensor Core GPU 
 
-* **Training time:** 
-
-  - Full training, tuning, and experimentation across all models took a couple of weeks ~1-3.
+* **Training time:**
+* 
+  - Models took a couple of weeks ~1-3 to build and train/validate
+  - Full training and tuning not implemented
 
 * **Training curves:** 
 
