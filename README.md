@@ -93,7 +93,7 @@ Prototypes were also designed but not fully built out one of which is a `GPT2 pr
   - Trained on: Dell Precision Workstation 5510, Lambda Cloud compute - NVIDIA RTX A6000, NVIDIA Quadro RTX 6000, NVIDIA GH200 Grace Hopper Superchip, NVIDIA A100 Tensor Core GPU, and NVIDIA A10 Tensor Core GPU + CPU clusters 
 
 * **Training time:**
-* 
+  
   - Models took a couple of weeks ~1-3 to build and train/validate
   - Full training and tuning not implemented
 
