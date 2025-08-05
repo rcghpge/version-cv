@@ -338,12 +338,15 @@ To reproduce visualizations, metrics, and ROC plots.
 
 ## Citations
 
+Further citations of works cited are referenced at `data/` and `docs/` 
+
 * Tan & Le (2019). EfficientNet
 * Vaswani et al. (2017). Attention Is All You Need
 * Mikolov et al. (2013). Word2Vec
 * Chen & Guestrin (2016). XGBoost
 * Gervais et al. (2025). MathWriting Dataset
 * Hendrycks et al. (2021). MATH Dataset
+* Saxton et al. (2019). MATH Dataset
 * Cocker, R. (2025). Version-Tab (Version 0.1.0) [Computer software]. https://github.com/rcghpge/version-tab
 
 ---
