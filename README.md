@@ -196,8 +196,8 @@ Click images to enlarge
 ### Research Samples
 <table>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/deepmind_latex_expression.png" alt="LaTeX Expression" width="400"/></td>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/formula_with_ocr_boxes.png" alt="Formula with OCR Boxes" width="400"/></td>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/deepmind_latex_expression.png" alt="LaTeX Expression" width="300" height="225"/></td>
+    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/formula_with_ocr_boxes.png" alt="Formula with OCR Boxes" width="300" height="225"/></td>
   </tr>
   <tr>
     <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/formula_with_boxes.png" alt="Formula with Bounding Boxes" width="400"/></td>
