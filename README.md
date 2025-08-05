@@ -37,14 +37,14 @@ Prototypes were also designed but not fully built out one of which is a `GPT2 pr
 
 * **Data:**
   * **Type:**
-    - Image: 224×224 LaTeX-rendered symbols (image column - .parquet)
+    - Image: 224×224 LaTeX-rendered symbols (image column - `.parquet` dataset)
     - Text: Tokenized LaTeX expressions
     - Output: Multi-class and binary labels
   * **Size:**
     - ~230,000 total samples (multi-class)
     - Binary samples from MathWriting 
-    - 1.25 GB
-    - original dataset not fully utilized 
+    - 1.25 GB `.parquet` dataset
+    - original dataset is in `.inkml` format
   * **Split:**
     - ~10% of the training data was utilized (~18,400 training samples, ~2,300 validation samples)
     - GPT2 prototype utilized the full 1.25GB dataset
@@ -112,6 +112,7 @@ Prototypes were also designed but not fully built out one of which is a `GPT2 pr
   - Time constraints and restrictions on what to build and how to build
   - Complete Python built models not developed due to time constraints
   - Scope of requirements for academic level projects
+  - `.parquet` dataset not fully utilized including origianl `.inkml` dataset 
   - Did not fully test builds
 
 ### Performance Comparison
