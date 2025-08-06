@@ -306,6 +306,9 @@ Dependencies:
 
 ## Data
 
+> ℹ️ Note:
+> A data pipeline tool was built during project development. It is not uploaded to the repository. If you run into bottlenecking in this space submit a GitHub issue (feature request) and I'll set the build at the repository for foss community R&D
+
 * Public data:
   * [MathWriting Dataset](https://huggingface.co/datasets/deepcopy/MathWriting-human)
   * DeepMind MATH (local generation)
