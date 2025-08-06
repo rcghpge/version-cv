@@ -113,8 +113,6 @@ Prototypes were also designed but not fully built out one of which is a `GPT2 pr
   - Symbol label imbalance and binary class noise 
   - Feature drift during Word2Vec–XGBoost transfer
   - Scoping the work only to what is understood as data science today
-  - Time constraints and restrictions on what to build and how to build
-  - Complete Python built models not developed due to time constraints
   - Scope of requirements for academic level projects
   - `.parquet` dataset not fully utilized including original `.inkml` dataset 
   - Did not fully test builds
