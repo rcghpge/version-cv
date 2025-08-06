@@ -330,7 +330,7 @@ All model training is notebook-based. Start with:
  * `basemodel.ipynb` for image classification
  * `model2.ipynb` for text modeling
  * `model3.ipynb` and `model4.ipynb` for classical approaches
- * `protopes.ipynb` for GPT-based designs from prototyping
+ * `prototypes.ipynb` for GPT-based designs from prototyping
 
 ## Performance Evaluation
 
