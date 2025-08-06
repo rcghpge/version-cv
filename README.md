@@ -194,6 +194,7 @@ Click images to enlarge
     <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/samplemodeloutputs.png" alt="Sample Model Outputs" width="300"/></td>
   </tr>
 </table>
+
 ---
 
 ### Prototype Samples
