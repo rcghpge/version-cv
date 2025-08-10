@@ -51,7 +51,7 @@ Prototypes were also designed but not fully built out one of which is a `GPT2 pr
     - Multi-class: 90% train / 10% val 
     - Binary: 90% train / 10% val
 
-  For all datasets considered for this project please `data/` directory for more information
+  For all datasets considered for this project please see `data/` directory for more information
   
 #### Preprocessing / Clean up
 
