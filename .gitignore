@@ -92,4 +92,4 @@ yarn-error.log
 !pixi.lock.bak
 !pixi.toml.bak
 !sandbox/
-
+!README.md.bak

@@ -1,358 +1,168 @@
 # version-cv
 
-* **One Sentence Summary** 
+[![CodeQL Advanced](https://github.com/rcghpge/version-cv/actions/workflows/codeql.yml/badge.svg)](https://github.com/rcghpge/version-cv/actions/workflows/codeql.yml)
+[![Bandit](https://github.com/rcghpge/version-cv/actions/workflows/bandit.yml/badge.svg)](https://github.com/rcghpge/version-cv/actions/workflows/bandit.yml)
 
-  This is a GitHub repository for ML/DL in symbolic math classification using image-based, text-based, and classical learning models including EfficientNetB0, GPT2, Word2Vec, and XGBoost.
+Version-cv is a research-driven deep learning repository focused on mathematical problem solving, image recognition, and mathematical reasoning in large language models (LLMs). It builds on the foundation of [version-tab](https://github.com/rcghpge/version-tab), which emphasizes mathematical symbolic reasoning, math-based vectorization, and tabular LLM development.
 
----
 
-## Overview
+Extending this work into the visual domain, version-cv builds for vision-based tasks and multimodal understanding. It integrates PyFlink for distributed data processing, Apache Atlas for metadata and lineage tracking, Apache Airflow for workflow orchestration, PyArrow for efficient in-memory columnar data interchange, and [Mojo](https://www.modular.com/mojo) for high-performance AI ML/DL development. Together, these technologies enable scalable, reproducible research across structured and unstructured data pipelines. 
 
-* **Definition of the tasks / challenge**
+Due to time constraints during the project's development, many of these tools were not fully leveraged—but they are included as a contribution to the open-source community for continued research, experimentation, and advancement in this space.
 
-  The project explores symbolic reasoning and multimodal classification using visual and textual inputs. A binary classification task was constructed using the Hugging Face version of the MathWriting dataset by shuffling LaTeX ID and image pairings to generate synthetic binary labels (0 or 1).
+**Research Publications/References:** 
+- [Gervais et al., MathWriting: A Dataset for Handwritten Mathematical Expression Recognition](https://arxiv.org/abs/2404.10690)
+- [Saxton et al., Analyzing Mathematical Reasoning Abilities of Neural Models](https://openreview.net/pdf?id=H1gR5iR5FX)
 
-* **Approach**
 
-  Four models were developed and compared:
-  - `EfficientNetB0` for visual symbol classification
-  - `GPT2` fine-tuned on LaTeX token sequences
-  - `Word2Vec` for symbolic embeddings
-  - `XGBoost` applied to TF-IDF vectors
-
-Prototypes were also designed but not fully built out one of which is a `GPT2 prototype`
-
-* **Summary of the performance achieved** 
-  - EfficientNetB0: ~51% accuracy 
-  - GPT2: ~47% accuracy 
-  - Word2Vec: ~48% macro F1 score 
-  - XGBoost: ~49% macro F1 score 
-  - GPT2 prototype: ~76.1% accuracy, ROC AUC score .832 (83.2%)
+See Research & References section below for a broader scope of the research for this project.
 
 ---
 
-## Summary of Workdone
+## 📊 Key Datasets
 
-### Data
+* [MathWriting](https://huggingface.co/datasets/deepcopy/MathWriting-human)
+* [DeepMind Mathematics Dataset](https://github.com/google-deepmind/mathematics_dataset)
 
-* **Data:**
-  * **Type:**
-    - Image: 224×224 LaTeX-rendered symbols (image column - `.parquet` dataset)
-    - Text: Tokenized LaTeX expressions
-    - Output: Multi-class and binary labels
-  * **Size:**
-    - ~230,000 total samples (multi-class)
-    - Binary samples from MathWriting 
-    - 1.25 GB `.parquet` dataset
-    - original dataset is in `.inkml` format
-  * **Split:**
-    - ~10% of the training data was utilized (~18,400 training samples, ~2,300 validation samples)
-    - GPT2 prototype utilized the full 1.25GB dataset
-    - Multi-class: 90% train / 10% val 
-    - Binary: 90% train / 10% val
-
-  For all datasets considered for this project please see `data/` directory for more information
-  
-#### Preprocessing / Clean up
-
-* Image resizing and normalization 
-* GPT2 tokenization of LaTeX strings 
-* Shuffling LaTeX ID–image pairs to generate 0/1 binary labels 
-* Oversampling used for class balancing
-
-#### Data Visualization
-
-* Token length distributions, symbol histograms 
-* t-SNE clustering of Word2Vec vectors 
-* Confusion matrices and ROC curves for binary task
-* EDA
-
-  See Visual Overview section below
-  
-### Problem Formulation
-
-* **Input / Output:** 
-  - Input: math symbol image or LaTeX sequence 
-  - Output: categorical label or binary label
-
-* **Models:** 
-  - `EfficientNetB0` (image classifier) 
-  - `GPT2` (LaTeX sequence transformer) 
-  - `Word2Vec` + `XGBoost` (vectorized + classical)
-  - `GPT2 prototype` (LaTeX sequence tranformer optimized)
-
-* **Loss, Optimizer, Hyperparameters:** 
-  - Loss: Categorical/Binary Crossentropy 
-  - Optimizers: Adam, AdamW 
-  - Batch Size: 32, Epochs: 30, Early stopping applied
+Initial benchmarks were considered but not implemented due to time constraint research and builds. They are provided in [`data/`](https://github.com/rcghpge/version-cv/tree/main/data) and [`docs/`](https://github.com/rcghpge/version-cv/tree/main/docs) directories.
 
 ---
 
-### Training
+## 📁 Project Structure
 
-* **Software & Hardware:** 
-  - Ubuntu 24.04 LTS WSL2
-  - Python 3.12.11 
-  - TensorFlow 2.15, 2.18, and 2.19, HuggingFace Transformers, Gensim, XGBoost (newer TF versions for cloud dev) 
-  - Trained on: Dell Precision Workstation 5510, Lambda Cloud compute - NVIDIA RTX A6000, NVIDIA Quadro RTX 6000, NVIDIA GH200 Grace Hopper Superchip, NVIDIA A100 Tensor Core GPU, and NVIDIA A10 Tensor Core GPU + CPU clusters 
-
-* **Training time:**
-  
-  - Models took a couple of weeks ~1-3 to build and train/validate
-  - Full training and tuning not implemented
-
-* **Training curves:** 
-
-  - Models converged within 10–20 epochs 
-  - Validation monitoring and checkpointing used 
-  - Binary classifier reached high AUC after 5–8 epochs
-
-* **Challenges:** 
-
-  - GPT2 token memory and batch size constraints 
-  - Symbol label imbalance and binary class noise 
-  - Feature drift during Word2Vec–XGBoost transfer
-  - Scoping the work only to what is understood as data science today
-  - Scope of requirements for academic level projects
-  - `.parquet` dataset not fully utilized including original `.inkml` dataset 
-  - Did not fully test builds
-
-### Performance Comparison
-
-* **Metrics:** Accuracy, Macro F1, ROC AUC (binary)
-
-| Model                  | Accuracy | F1 Score (macro) |
-|-----------------------|----------|------------------|
-| EfficientNetB0        | 51%      | NaN              |
-| GPT2                  | 47%      | 0.34             |
-| Word2Vec              | 48%      | 0.32             |
-| XGBoost               | 49%      | 0.48             |
-| GPT2 Prototype        | 76.1%    | 0.76             |
+```
+version-cv/
+├── cloud
+├── data
+├── docs
+├── models
+├── notebooks
+├── sandbox
+├── .gitattributes
+├── .gitignore
+├── CITATION.cff
+├── LICENSE
+├── README.md
+├── install_pixi.sh
+├── pixi.lock
+└── pixi.toml
+```
 
 ---
 
-## 📊 Visual Overview
+## ⚡ Setup
 
-Click images to enlarge
-
----
-
-### EfficientNetB0 Results
-
-<table align="center" style="margin:auto">
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/efficientneb0.png" alt="EfficientNetB0 Output" width="400" height="500"/></td>
-  </tr>
-</table>
-
----
-
-### GPT-2 Results
-<table>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/gpt2.png" alt="GPT-2 Output" width="400"/></td>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/gpt2confusionmatrix.png" alt="GPT-2 Confusion Matrix" width="400"/></td>
-  </tr>
-</table>
-
----
-
-### Word2Vec + LSTM Results
-<table>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/word2vec.png" alt="Word2Vec Output" width="400"/></td>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/word2vecconfusionmatrix.png" alt="Word2Vec Confusion Matrix" width="400"/></td>
-  </tr>
-</table>
-
----
-
-### XGBoost Results
-<table>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/xgboost.png" alt="XGBoost Output" width="400"/></td>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/xgboostconfusionmatrix.png" alt="XGBoost Confusion Matrix" width="400"/></td>
-  </tr>
-</table>
-
----
-
-### GPT-2 Prototype Results
-<table>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/prototypesroccurve.png" alt="Prototype Drafts" width="400"/></td>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/prototypes.png" alt="Prototype ROC Curve" width="400"/></td>
-  </tr>
-</table>
-
----
-
-### Model Prototyping + Inference
-
-<table align="center" style="margin:auto">
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/samplemodeloutputs.png" alt="Sample Model Outputs" width="300"/></td>
-  </tr>
-</table>
-
----
-
-### Prototype Samples
-<table>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/deepmind_latex_expression.png" alt="LaTeX Expression" width="325" height="350"/></td>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/formula_with_ocr_boxes.png" alt="Formula with OCR Boxes" width="325" height="350"/></td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/formula_with_boxes.png" alt="Formula with Bounding Boxes" width="400"/></td>
-    <td><img src="https://raw.githubusercontent.com/rcghpge/version-cv/main/assets/combined_synthetic_ink.png" alt="Synthetic Ink Sample" width="400"/></td>
-  </tr>
-</table>
-
----
-
-### Conclusions
-
-* EfficientNetB0 model inference on symbolic image classification for math-based images challenges the model   
-* GPT2 on a small dataset struggles to generate results for token sequence inputs 
-* MathWriting binary label task showed promising generalization from shuffled samples 
-* Word2Vec + XGBoost were generally lightweight and interpretable - XGBoost generalized well when comparing confusion matrix results
-* GPT2 prototype outperformed all model builds (though was trained on full `.parquet` dataset)
-
----
-
-### Future Work
-
-* Integrate CROHME-style handwritten data 
-* Explore layout-aware ViT + LSTM hybrids 
-* Build MathOCR pipeline with MathPix-style parsing 
-* Expand symbolic corpora beyond MathWriting
-* Explainable AI (XAI)
-* Secure ML/DL systems
-* Responsible data science
-
----
-
-## How to reproduce results
+This project is built with [Pixi](https://pixi.sh/latest/) to manage environments and Python dependencies.
 
 ```bash
-git clone https://github.com/rcghpge/version-cv.git
-cd version-cv
+# Install Pixi if not already installed
+curl -sSf https://pixi.sh/install.sh | bash
+
+# Or run the installation script
+./install_pixi.sh
+
+# Initialize Pixi (creates pixi.toml and pixi.lock)
+pixi init
+
+# Install dependencies
+pixi install
+
+# Enter Pixi environment
 pixi shell
-pixi install 
+
+# Pixi environment information
 pixi info
 ```
 
-## Launch Jupyter Lab
+---
+
+## 🚀 Quick Start 
+
+On machines with low compute these may not run as fast. Run Jupyter notebooks to see how models were designed.
+### Option 1: Using Pixi shell
+
+```bash
+python models/basemodel.py
+jupyter lab
+```
+
+### Option 2: One-liner
+
+```bash
+pixi run python models/basemodel.py
+pixi run jupyter lab
+```
+
+---
+
+## 📊 Running & Viewing Results
+
+1. Place your images and data in the `data/` directory (e.g., `data/handwriting`, `data/formulas`).
+
+2. Run training/inference:
+
+```bash
+python models/basemodel.py
+```
+
+---
+
+## 🧪 Notebooks
+
+Jupyter Lab:
 
 ```bash
 jupyter lab
 ```
 
-Notebook index:
-
- * `basemodel.ipynb`: basel model + EfficientNetB0 backbone model
- * `model2.ipynb`: GPT2 model
- * `model3.ipynb`: Word2Vec training + classical classifier
- * `model4.ipynb`: XGBoost integration
- * `mathwriting.ipynb`: prototyping builds
- * `comparemodels.ipynb`: side-by-side model analysis
- * `prototypes.ipynb`: GPT2 prototype (performed the best)
+Run Jupyter notebooks `basemodel.ipynb` or `mathwriting.ipynb` from the `notebooks/` folder for exploratory workflows.
 
 ---
 
-## Overview of files in repository
+## 📃 Research & References
+
+* Gervais et al., *MathWriting: A Dataset for Handwritten Mathematical Expression Recognition*
+  [arXiv:2404.10690](https://arxiv.org/abs/2404.10690)
+* Saxton et al., *Analyzing Mathematical Reasoning Abilities of Neural Models*
+  [arXiv:1904.01557](https://arxiv.org/abs/1904.01557)
+* OpenAI, *Improving Mathematical Reasoning with Process Supervision* (2023)
+  [Blog Link](https://openai.com/index/improving-mathematical-reasoning-with-process-supervision/)
+* Hendrycks et al., *Measuring Mathematical Problem Solving With the MATH Dataset*
+  [arXiv:2103.03874](https://arxiv.org/abs/2103.03874)
+
+Additional implementation notes are in [`docs/`](https://github.com/rcghpge/version-cv/tree/main/docs) and data usage info is in [`data/`](https://github.com/rcghpge/version-cv/tree/main/data).
+
+---
+
+## 🛡️ Security Note - Future Research in The Space
+`version-cv` is built with integrated security and Python dependency management tools Bandit and pip-audit.
+Security and reproducibility improvements are important and welcome via PR's
+
+### Bandit
+
+[Bandit](https://bandit.readthedocs.io/en/latest/) is a static analysis tool that is utilized to identify common security issues in Python code.
+
+To run manually:
 
 ```bash
-version-cv/
-├── CITATION.cff              # Citation metadata
-├── LICENSE                   # Open-source license
-├── README.md                 # Main project documentation
-├── assets/                   # Diagrams, plots, confusion matrices, LaTeX images 
-├── cloud/                    # LambdaCloud configs and scripts
-├── data/                     # MathWriting, DeepMind MATH, CSAI, and related corpora
-├── docs/                     # Academic PDFs and source papers
-├── install_pixi.sh           # Environment setup script
-├── models/                   # Saved model files (.h5, .keras, .json)
-├── notebooks/                # All core modeling and evaluation notebooks
-├── pixi.lock                 # Pixi environment lock
-├── pixi.toml                 # Pixi environment definition
-└── sandbox/                  # Experimental code (dev branch)
+bandit -r models/ notebooks/
+```
+
+### pip-audit
+
+[pip-audit](https://pypi.org/project/pip-audit/)  is a tool for scanning Python dependencies and packages in your environment for vulnerabilities.
+
+To run:
+
+```bash
+pixi run pip-audit
+```
+
+Or:
+
+```bash
+pip-audit
 ```
 
 ---
 
-## Software Setup
-
-```bash
-# Preferred
-pixi shell
-pixi install
-
-# Virtual evironment setup
-pixi info
-```
-
-Dependencies:
-
- * `tensorflow`==2.15, 2.18, 2.19 (newer versions for cloud dev)
- * `transformers`
- * `gensim`
- * `xgboost`
- * `scikit-learn`, `matplotlib`, `numpy`, `pandas`
- * `pixi`
- * `python` >=3.12.11
-
----
-
-## Data
-
-> ℹ️ Note:
-> A data pipeline tool was built during project development. It is not uploaded to the repository. If you run into bottlenecking in this space submit a GitHub issue (feature request) and I'll set the build at the repository for foss community R&D
-
-* Public data:
-  * [MathWriting Dataset](https://huggingface.co/datasets/deepcopy/MathWriting-human)
-  * DeepMind MATH (local generation)
-* Binary labels generated by shuffling MathWriting LaTeX IDs
-
-Run preprocessing via:
-
-```bash
-jupyter lab notebooks/<notebooks>.ipynb
-```
-
----
-
-## Training
-
-All model training is notebook-based. Start with:
-
- * `basemodel.ipynb` for image classification
- * `model2.ipynb` for text modeling
- * `model3.ipynb` and `model4.ipynb` for classical approaches
- * `prototypes.ipynb` for GPT-based designs from prototyping
-
-## Performance Evaluation
-
-Use:
-```bash
-jupyter lab notebooks/comparemodels.ipynb
-```
-To reproduce visualizations, metrics, and ROC plots.
-
----
-
-## Citations
-
-Further citation of works cited are referenced at `data/` and `docs/` 
-
-* Tan & Le (2019). EfficientNet
-* Vaswani et al. (2017). Attention Is All You Need
-* Mikolov et al. (2013). Word2Vec
-* Chen & Guestrin (2016). XGBoost
-* Gervais et al. (2025). MathWriting Dataset
-* Hendrycks et al. (2021). MATH Dataset
-* Saxton et al. (2019). MATH Dataset
-* Cocker, R. (2025). Version-Tab (Version 0.1.0) [Computer software]. https://github.com/rcghpge/version-tab
-
----
