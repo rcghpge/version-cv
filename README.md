@@ -134,7 +134,8 @@ Additional implementation notes are in [`docs/`](https://github.com/rcghpge/vers
 
 ---
 
-## 🛡️ Security Note - Future Research in The Space
+## 🛡️ Security Note -
+
 `version-cv` is built with integrated security and Python dependency management tools Bandit and pip-audit.
 Security and reproducibility improvements are important and welcome via PR's
 
