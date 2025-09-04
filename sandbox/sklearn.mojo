@@ -7,7 +7,7 @@ ML/DL in the Mojo programming language.
 
 from collections.dict import Dict
 from collections.list import List
-from python import Python, PythonObject, TypedPythonObject
+from python import Python, PythonObject
 
 
 fn generate_models() raises:
@@ -96,10 +96,6 @@ fn generate_models() raises:
     var grid_search = Python.import_module("sklearn.model_selection")
 
     # Define parameter grid
-    """
-    Hyperparameter tuning and fine-tuning in Mojo is still unheard of currently 
-    I believe. This may be a few of the first implementations of Scikit-learn in Mojo.
-    """
     # var pymax = Python.import_module("max.python").attr("Python")
     var param_grid = Python.dict()
 
