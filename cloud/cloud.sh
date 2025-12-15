@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set project directory name
-PROJECT_DIR="<project directoy here>"
+PROJECT_DIR="<project directory here>"
 ARCHIVE_NAME="<directory archived here>.tar.gz"
 
 # Ensure you are in the correct parent directory
